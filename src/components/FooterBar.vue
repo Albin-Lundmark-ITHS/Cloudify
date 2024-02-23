@@ -62,6 +62,7 @@
   color: white;
   text-align: center;
   box-shadow: 10px 5px 20px rgb(0, 0, 0);
+  overflow-y: hidden;
 }
 a:visited {
   color: black;
