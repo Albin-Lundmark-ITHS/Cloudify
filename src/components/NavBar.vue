@@ -1,0 +1,86 @@
+<template>
+  <!-- Navbar start -->
+  <v-app-bar height="70" color="#D4F0FD" prominent>
+    <div class="logo-container">
+      <RouterLink to="/"
+        ><img alt="Logo" class="logo" src="@/assets/img/CloudifyLogo.png" width="55" height="55"
+      /></RouterLink>
+    </div>
+    <!-- Spacer for nav icon and logo -->
+    <v-spacer></v-spacer>
+    <!--
+    <v-spacer></v-spacer> -->
+    <v-app-bar-nav-icon
+      size="x-large"
+      variant="text"
+      @click.stop="drawer = !drawer"
+    ></v-app-bar-nav-icon>
+  </v-app-bar>
+  <!-- Navbar end -->
+  <!-- Navigation drawer start -->
+  <v-navigation-drawer color="#B5E6FA" v-model="drawer" location="right" temporary>
+    <!-- Close btn -->
+    <v-btn
+      variant="text"
+      append-icon="mdi-chevron-right"
+      size="large"
+      @click.stop="drawer = !drawer"
+      >Close</v-btn
+    >
+    <!-- <v-icon icon="mdi-close"></v-icon> -->
+    <!-- Save for later for group to choose -->
+    <v-divider class="border-opacity-100" color="black"></v-divider>
+    <RouterLink to="/">Home</RouterLink>
+    <v-divider class="border-opacity-100" color="black"></v-divider>
+    <RouterLink to="/about">About</RouterLink>
+    <v-divider class="border-opacity-100" color="black"></v-divider>
+  </v-navigation-drawer>
+  <!-- Navigation drawer end-->
+</template>
+
+<script>
+export default {
+  data: () => ({
+    drawer: false,
+    group: null
+  }),
+  watch: {
+    group() {
+      this.drawer = false
+    }
+  }
+}
+</script>
+
+<style scoped>
+.logo-container {
+  height: auto;
+  margin-top: 0.4rem;
+}
+
+a {
+  margin: 20px;
+  text-decoration: none;
+  color: #062b50;
+}
+a:hover {
+  color: white;
+}
+a:active {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+.v-divider {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.v-btn {
+  display: flex;
+  justify-content: baseline;
+}
+.v-navigation-drawer__scrim {
+  display: none;
+}
+</style>
