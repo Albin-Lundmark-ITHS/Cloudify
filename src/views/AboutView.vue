@@ -1,6 +1,5 @@
 <template>
   <div id="grid-container">
-    <!--     <div id="hero-header"> -->
     <div id="about-us-container">
       <h1>Meet our team</h1>
 
@@ -34,17 +33,18 @@
         quisquam?
       </p>
     </div>
-    <!--    </div> -->
   </div>
   <div id="contact-container">
     <div id="contact-field">
-      <h2>Contact us</h2>
-      <img id="cloudifyLogo" src="../assets/CloudifyLogo.png" alt="" />
-      <h3>Phone:</h3>
-      <h4>123-456-789</h4>
-      <h3>Email: cloudify@cloudify.com</h3>
-      <h3>Address:</h3>
-      <h4>Cloud St 15, New York</h4>
+      <div id="contact-field-text">
+        <h2>Contact us</h2>
+        <img id="cloudifyLogo" src="../assets/img/CloudifyLogo.png" alt="" />
+        <h3>Phone:</h3>
+        <h4>123-456-789</h4>
+        <h3>Email: cloudify@cloudify.com</h3>
+        <h3>Address:</h3>
+        <h4>Cloud St 15, New York</h4>
+      </div>
     </div>
   </div>
 </template>
@@ -56,12 +56,6 @@ body {
   padding: 0;
 }
 
-/* #grid-container {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
-}
- */
 #grid-container {
   display: grid;
   grid-template-rows: 1fr;
@@ -72,7 +66,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 3vh;
+  margin-bottom: 5vh;
 }
 
 #staff-image {
@@ -95,14 +89,25 @@ body {
 }
 
 #contact-field {
-  margin-top: 40px;
   text-align: center;
   background-color: #d4f0fd;
-  /*background-image: linear-gradient(to bottom right, #337891, #b5e6fa); */
+  border: 1px solid rgba(0, 0, 0, 0.116);
+
+  background: linear-gradient(to bottom left, #b5e6fa 50%, #5b7985 50%);
   background: linear-gradient(to bottom left, #b5e6fa 50%, #a0d2e4 50%);
   width: 100%;
-  margin-left: 8vw;
-  margin-right: 5vw;
+  margin: 40px 5vw 70px 5vw;
+  padding-top: 4vh;
+  padding-bottom: 5vh;
+  border: 4px ridge rgba(104, 125, 126, 0.575);
+  box-shadow: 60px -16px teal;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#contact-field-text {
+  margin-left: 880px;
+  text-align: left;
 }
 
 #cloudifyLogo {
