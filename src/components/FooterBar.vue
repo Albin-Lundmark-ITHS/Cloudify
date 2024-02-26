@@ -41,7 +41,6 @@
   font-size: 32px;
 }
 #iconsFooter {
-  color: black;
   margin: 20px;
   display: flex;
   justify-content: center;
@@ -64,10 +63,14 @@
   box-shadow: 10px 5px 20px rgb(0, 0, 0);
   overflow-y: hidden;
 }
-a:visited {
-  color: black;
-}
 a {
+  text-decoration: none;
+  color: #062b50;
+}
+a:hover {
+  color: white;
+}
+a:active {
   text-decoration: none;
 }
 </style>
