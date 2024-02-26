@@ -1,21 +1,23 @@
 <template>
   <!-- Navbar start -->
-  <v-app-bar height="70" color="#D4F0FD" prominent>
-    <div class="logo-container">
-      <RouterLink to="/"
-        ><img alt="Logo" class="logo" src="@/assets/img/CloudifyLogo.png" width="55" height="55"
-      /></RouterLink>
-    </div>
-    <!-- Spacer for nav icon and logo -->
-    <v-spacer></v-spacer>
-    <!--
+  <div id="nav-bar">
+    <v-app-bar height="70" color="#D4F0FD" prominent>
+      <div class="logo-container">
+        <RouterLink to="/"
+          ><img alt="Logo" class="logo" src="@/assets/img/CloudifyLogo.png" width="55" height="55"
+        /></RouterLink>
+      </div>
+      <!-- Spacer for nav icon and logo -->
+      <v-spacer></v-spacer>
+      <!--
     <v-spacer></v-spacer> -->
-    <v-app-bar-nav-icon
-      size="x-large"
-      variant="text"
-      @click.stop="drawer = !drawer"
-    ></v-app-bar-nav-icon>
-  </v-app-bar>
+      <v-app-bar-nav-icon
+        size="x-large"
+        variant="text"
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
+    </v-app-bar>
+  </div>
   <!-- Navbar end -->
   <!-- Navigation drawer start -->
   <v-navigation-drawer color="#B5E6FA" v-model="drawer" location="right" temporary>
@@ -82,5 +84,8 @@ a:visited {
 }
 .v-navigation-drawer__scrim {
   display: none;
+}
+#nav-bar {
+  margin-bottom: 70px;
 }
 </style>
