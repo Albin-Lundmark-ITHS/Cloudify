@@ -50,16 +50,10 @@
 </template>
 
 <style scoped>
-body {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
-
 #grid-container {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1.5fr;
 }
 
 #about-us-container {
@@ -91,23 +85,19 @@ body {
 #contact-field {
   text-align: center;
   background-color: #d4f0fd;
-  border: 1px solid rgba(0, 0, 0, 0.116);
-
+  border: 1px solid rgba(0, 0, 0, 0.116); /* 
   background: linear-gradient(to bottom left, #b5e6fa 50%, #5b7985 50%);
-  background: linear-gradient(to bottom left, #b5e6fa 50%, #a0d2e4 50%);
+  background: linear-gradient(to bottom left, #b5e6fa 50%, #a0d2e4 50%); */
   width: 100%;
   margin: 40px 5vw 70px 5vw;
   padding-top: 4vh;
   padding-bottom: 5vh;
   border: 4px ridge rgba(104, 125, 126, 0.575);
   box-shadow: 60px -16px teal;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 #contact-field-text {
-  margin-left: 880px;
-  text-align: left;
+  text-align: center;
 }
 
 #cloudifyLogo {
