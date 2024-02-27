@@ -1,4 +1,13 @@
 <template>
+  <!-- inputfield START -->
+  <v-text-field
+    id="city-input"
+    label="Enter a city or country"
+    v-model="cityInput"
+    style="width: 300px"
+    @keydown.enter="fetchWeatherData()"
+  ></v-text-field>
+  <!-- inputfield END -->
   <v-card class="weather-card mx-auto" color="#D4E9F4">
     <v-card-item :title="currentCity">
       <v-card-item :title="currentCountry">
@@ -96,12 +105,12 @@ export default {
     windSpeed: '',
     humidity: '',
     text: '',
-    currentCity: ''
+    currentCity: '',
+    cityInput: 'Stockholm'
   }),
   methods: {
     fetchWeatherData() {
-      const city = 'Stockholm'
-      const url = `http://api.weatherapi.com/v1/current.json?key=2a1aabcb3f8f49fca60101701242002&q=${city}&aqi=no`
+      const url = `http://api.weatherapi.com/v1/current.json?key=2a1aabcb3f8f49fca60101701242002&q=${this.cityInput}&aqi=no`
 
       axios
         .get(url)
