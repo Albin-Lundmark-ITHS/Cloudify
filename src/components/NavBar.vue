@@ -20,7 +20,12 @@
   </div>
   <!-- Navbar end -->
   <!-- Navigation drawer start -->
-  <v-navigation-drawer color="#B5E6FA" v-model="drawer" location="right" temporary>
+  <v-navigation-drawer
+    color="#B5E6FA"
+    v-model="drawer"
+    location="right"
+    temporary
+  >
     <!-- Close btn -->
     <v-btn
       variant="text"
