@@ -149,7 +149,6 @@
 
 /* Form */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .mdi-phone {
   margin-right: 8px;
