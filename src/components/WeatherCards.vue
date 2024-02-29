@@ -1,13 +1,14 @@
 <template>
-  <!-- inputfield START -->
-  <v-text-field
-    id="city-input"
-    label="Enter a city or country"
-    v-model="cityInput"
-    style="width: 300px"
-    @keydown.enter="fetchWeatherData()"
-  ></v-text-field>
-  <!-- inputfield END -->
+  <v-responsive class="mx-auto text-container">
+    <v-text-field
+      id="city-input"
+      label="Enter a city or country"
+      v-model="cityInput"
+      append-inner-icon="mdi-magnify"
+      class="text-field-input"
+      @keydown.enter="fetchWeatherData()"
+    ></v-text-field>
+  </v-responsive>
   <v-card class="weather-card mx-auto" color="#D4E9F4">
     <v-card-item :title="currentCity">
       <v-card-item :title="currentCountry">
@@ -108,6 +109,11 @@ export default {
     currentCity: '',
     cityInput: 'Stockholm'
   }),
+  watch: {
+    cityInput() {
+      this.fetchWeatherData()
+    }
+  },
   methods: {
     fetchWeatherData() {
       const url = `http://api.weatherapi.com/v1/current.json?key=2a1aabcb3f8f49fca60101701242002&q=${this.cityInput}&aqi=no`
@@ -132,12 +138,27 @@ export default {
         })
     }
   },
+
   created() {
     this.fetchWeatherData()
   }
 }
 </script>
 <style>
+.v-responsive__content {
+  display: flex;
+  justify-content: center;
+}
+.text-field-input {
+  max-width: 55vw;
+}
+.v-input__control {
+  border: none;
+  margin-top: 30px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 5px 0px inset;
+}
+
 .weather-card {
   max-width: 90%;
   margin-bottom: 20vh;
