@@ -10,13 +10,12 @@
     ></v-text-field>
   </v-responsive>
   <v-card :class="backgroundImage" class="weather-card mx-auto">
-    <v-card-item :title="currentCity">
-      <v-card-item :title="currentCountry">
+    <v-card-item :title="currentCity + ', ' + currentCountry" >
         <template v-slot:subtitle>
           {{ text }}
         </template>
       </v-card-item>
-    </v-card-item>
+
 
     <v-card-text class="py-0">
       <v-row align:center no-gutters>
@@ -37,40 +36,30 @@
     <v-expand-transition>
       <div v-if="expand">
         <!-- Windspeed -->
-        <v-list-item density="compact" prepend-icon="mdi-weather-windy">
+        <v-list-item class="icon" density="compact" prepend-icon="mdi-weather-windy">
           <v-list-item-subtitle class="reportInfo"
             >Wind Speed: {{ windSpeed }}</v-list-item-subtitle
           >
         </v-list-item>
 
         <!-- Humidity -->
-        <v-list-item density="compact" prepend-icon="mdi-water-percent">
+        <v-list-item class="icon" density="compact" prepend-icon="mdi-water-percent">
           <v-list-item-subtitle class="reportInfo">Humidity: {{ humidity }}</v-list-item-subtitle>
         </v-list-item>
         <!-- Feels like -->
 
-        <v-list-item density="compact" prepend-icon="mdi-thermometer-low">
+        <v-list-item class="icon" density="compact" prepend-icon="mdi-thermometer-low">
           <v-list-item-subtitle class="reportInfo"
             >Feels Like: {{ feelsLike }}</v-list-item-subtitle
           >
         </v-list-item>
         <!-- UV index -->
 
-        <v-list-item density="compact" prepend-icon="mdi-white-balance-sunny">
+        <v-list-item class="icon" density="compact" prepend-icon="mdi-white-balance-sunny">
           <v-list-item-subtitle class="reportInfo">
             UV Index: {{ uvIndex }}</v-list-item-subtitle
           ></v-list-item
         >
-        <v-list class="bg-transparent">
-          <v-list-item
-            v-for="item in forecast"
-            :key="item.day"
-            :title="item.day"
-            :append-icon="item.icon"
-            :subtitle="item.temp"
-          >
-          </v-list-item>
-        </v-list>
       </div>
     </v-expand-transition>
 
@@ -89,24 +78,15 @@ import axios from 'axios'
 
 export default {
   data: () => ({
-    labels: {
-      0: 'SU',
-      1: 'MO',
-      2: 'TU',
-      3: 'WED',
-      4: 'TH',
-      5: 'FR',
-      6: 'SA'
-    },
     expand: false,
-    time: 0,
-    forecast: [],
+    lastUpdated: '',
     currentTemp: '',
     currentConditionIcon: '',
     windSpeed: '',
     humidity: '',
     text: '',
     currentCity: '',
+    currentCountry: '',
     cityInput: 'Stockholm',
     weatherCode: 0,
     isDay: 0
@@ -176,7 +156,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .v-responsive__content {
   display: flex;
   justify-content: center;
@@ -187,21 +167,32 @@ export default {
 .v-input__control {
   border: none;
   margin-top: 30px;
-  border-radius: 20px;
+  border-radius: 30px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 5px 0px inset;
 }
+
+@media (max-width: 800px) {
+  .text-field-input {
+  max-width: 80vw;
+}
+}
+</style>
+
+<style scoped>
 .weather-card {
   max-width: 90%;
-  margin-bottom: 20vh;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
 }
 
 .reportInfo {
+  opacity: 90%;
   border-bottom: 2px solid #a39e9e;
   width: 25%;
 }
 
 .last-updated {
-  font-size: 35px;
+  font-size: 1rem;
 }
 .weather-card {
   max-width: 90%;

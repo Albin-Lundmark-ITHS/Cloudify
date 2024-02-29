@@ -13,7 +13,7 @@ export default {
 
 <template>
   <v-card
-    tonal
+    elevation="12"
     class="mx-auto"
     width="600"
     prepend-icon="mdi-map-marker"
@@ -45,7 +45,7 @@ export default {
         <v-card-text class="text-content condition">
           {{ day.day.condition.text }}
         </v-card-text>
-        <v-card-text class="text-content"> {{ day.day.maxtemp_c }}&deg; </v-card-text>
+        <v-card-text class="text-content"> {{ day.day.maxtemp_c }}&deg; C </v-card-text>
         <v-divider class="border-opacity-100"></v-divider>
       </div>
     </v-card-text>
@@ -54,7 +54,7 @@ export default {
 
 <style scoped>
 .mx-auto {
-  margin-top: 5rem;
+  margin-top: 5vh;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 10rem;
@@ -76,7 +76,7 @@ export default {
 
 @media (max-width: 600px) {
   .mx-auto {
-    margin-top: 100px;
+    margin-top: 5vh;
     display: flex;
     flex-wrap: wrap;
     max-width: 90%; /* Or fit-content? */
