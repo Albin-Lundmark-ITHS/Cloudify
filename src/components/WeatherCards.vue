@@ -105,12 +105,12 @@ export default {
     windSpeed: '',
     humidity: '',
     text: '',
-    currentCity: '',
-    cityInput: 'Stockholm'
+    currentCity: ''
   }),
   methods: {
     fetchWeatherData() {
-      const url = `http://api.weatherapi.com/v1/current.json?key=2a1aabcb3f8f49fca60101701242002&q=${this.cityInput}&aqi=no`
+      const city = 'Stockholm'
+      const url = `http://api.weatherapi.com/v1/current.json?key=2a1aabcb3f8f49fca60101701242002&q=${city}&aqi=no`
 
       axios
         .get(url)
