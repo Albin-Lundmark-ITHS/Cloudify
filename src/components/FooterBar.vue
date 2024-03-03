@@ -3,9 +3,9 @@
 <template>
   <footer class="footer">
     <div id="linksFooter">
-      <RouterLink to="/">TEXT</RouterLink>
-      <RouterLink to="/">TEXT</RouterLink>
-      <RouterLink to="/about">TEXT</RouterLink>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/">Favourites</RouterLink>
     </div>
     <div id="iconsFooter">
       <a href="https://www.facebook.com/" target="_blank">
@@ -17,15 +17,9 @@
       <a href="https://www.linkedin.com/" target="_blank">
         <v-icon class="footerIcon" icon="mdi-linkedin"></v-icon>
       </a>
-      <!--  <a href="https://www.youtube.com/" target="_blank">
-        <v-icon class="footerIcon" icon="mdi-youtube"></v-icon>
-      </a> -->
       <a href="https://www.instagram.com/" target="_blank">
         <v-icon class="footerIcon" icon="mdi-instagram"></v-icon>
       </a>
-      <!--    <a href="https://www.twitter.com/" target="_blank">
-        <v-icon class="footerIcon" icon="mdi-twitter"></v-icon>
-      </a> -->
     </div>
   </footer>
 </template>

@@ -9,8 +9,8 @@
       </div>
       <!-- Spacer for nav icon and logo -->
       <v-spacer></v-spacer>
-      <!--
-    <v-spacer></v-spacer> -->
+      <div><h1>Cloudify</h1></div>
+    <v-spacer></v-spacer>
       <v-app-bar-nav-icon
         size="x-large"
         variant="text"
@@ -34,8 +34,7 @@
       @click.stop="drawer = !drawer"
       >Close</v-btn
     >
-    <!-- <v-icon icon="mdi-close"></v-icon> -->
-    <!-- Save for later for group to choose -->
+    <!-- Links -->
     <v-divider class="border-opacity-100" color="black"></v-divider>
     <RouterLink to="/">Home</RouterLink>
     <v-divider class="border-opacity-100" color="black"></v-divider>
