@@ -6,6 +6,7 @@ import DailyForecastWeatherList from '@/components/DailyForecastWeatherList.vue'
 <template>
   <main>
     <WeatherCards />
+    <h1 class="text-center">See your local forecast</h1>
     <DailyForecastWeatherList />
   </main>
 </template>
