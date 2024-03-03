@@ -37,15 +37,6 @@
 
   <div id="contact-container">
     <div id="contact-field">
-      <!-- <div id="contact-field-text">
-      <h2>Contact us</h2>
-      <img id="cloudifyLogo" src="../assets/img/CloudifyLogo.png" alt="" />
-      <h3>Phone:</h3>
-      <h4>123-456-789</h4>
-      <h3>Email: cloudify@cloudify.com</h3>
-      <h3>Address:</h3>
-      <h4>Cloud St 15, New York</h4>
-    </div> -->
       <div class="container">
         <div class="form-container">
           <div class="left-container">
@@ -56,8 +47,6 @@
                 error nihil vero atque nobis magni repudiandae? Animi, rem.
               </p>
               <img id="cloudifyLogo" src="../assets/img/CloudifyLogo.png" alt="" />
-
-              <!--   <prepend-icon=""> -->
               <h3><v-icon class="footerIcon" icon="mdi-phone"></v-icon> 123-456-789</h3>
               <h3>
                 <v-icon class="footerIcon" icon="mdi-email-outline"></v-icon>cloudify@cloudify.com
@@ -93,6 +82,7 @@
 </template>
 
 <style scoped>
+/* Meet the staff */
 #grid-container {
   display: grid;
   grid-template-rows: 1fr;
@@ -108,7 +98,7 @@
 
 #staff-image {
   height: 65vh;
-  width: 950px;
+  width: auto;
 }
 
 #about-us-text {
@@ -119,24 +109,25 @@
   padding-right: 40px;
 }
 
+#about-us-text h2 {
+  overflow-y: hidden;
+}
+
+/* Contact information */
+
 #contact-container {
-  display: flex; /*
-  justify-content: center; */
+  display: flex;
   margin-bottom: 5vh;
 }
 
 #contact-field {
   display: flex;
   justify-content: center;
-  text-align: center; /*
-  background-color: #d4f0fd;
-  border: 1px solid rgba(0, 0, 0, 0.116); */
+  text-align: center;
   width: 100%;
   margin: 40px 5vw 70px 5vw;
   padding-top: 4vh;
   padding-bottom: 5vh;
-  /*  border: 4px ridge rgba(104, 125, 126, 0.575);
-  box-shadow: 60px -16px teal; */
 }
 
 #contact-field-text {
@@ -148,7 +139,6 @@
 }
 
 /* Form */
-
 
 .mdi-phone {
   margin-right: 8px;
@@ -174,10 +164,27 @@ h2 {
   display: flex;
 }
 
+/* Left container */
+
 .left-container {
   flex: 1;
   height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.left-inner-container {
+  height: 40vh;
+  width: 100%;
+  text-align: center;
+  margin-top: 120px;
+}
+
+.left-container p {
+  font-size: 0.9rem;
+}
+/* Right container */
 .right-container {
   display: flex;
   flex: 1;
@@ -187,24 +194,6 @@ h2 {
   background-color: white;
 }
 
-.left-container {
-  display: flex;
-  flex: 1; /* 
-  height: 480px; */
-  justify-content: center;
-  align-items: center;
-}
-
-.left-container p {
-  font-size: 0.9rem;
-}
-
-.left-inner-container {
-  height: 50%;
-  width: 100%;
-  text-align: center;
-  margin-top: 120px;
-}
 .right-inner-container {
   width: 70%;
   height: 80%;
@@ -244,40 +233,53 @@ button {
 button:hover {
   opacity: 0.7;
 }
-@media only screen and (max-width: 600px) {
-  .left-container {
-    display: none;
-  }
-  .lg-view {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .sm-view {
-    display: none;
-  }
-}
-
 form p {
   text-align: left;
 }
 
-/* Responsive layout adjustments */
-@media screen and (min-width: 600px) {
-  .col-25 {
-    width: 25%; /* Adjust column width for larger screens */
-    margin-left: 25px; /* Add some left margin for spacing */
+/* Media queries */
+
+/* Form */
+@media only screen and (max-width: 900px) {
+  .form-container {
+    flex-direction: column;
+    height: auto;
   }
-  .col-75 {
-    width: 70%; /* Adjust column width for larger screens */
+
+  .left-container,
+  .right-container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
-  input[type='submit'] {
-    width: auto; /* Adjust submit button width on larger screens */
-    float: right; /* Align the submit button to the right */
+
+  .left-inner-container,
+  .right-inner-container {
+    margin-top: 20px;
+    width: 90%;
+  }
+
+  /* Adjust the height of the right container */
+  .right-container {
+    min-height: 650px; /* Adjust this value as needed to fit content */
   }
 }
 
+@media screen and (min-width: 600px) {
+  .col-25 {
+    width: 25%;
+    margin-left: 25px;
+  }
+  .col-75 {
+    width: 70%;
+  }
+  input[type='submit'] {
+    width: auto;
+    float: right;
+  }
+}
+
+/* Meet the team */
 @media only screen and (max-width: 1400px) {
   #grid-container {
     display: grid;
@@ -291,23 +293,9 @@ form p {
     padding-right: 4vw;
   }
 
-  #contact-field {
-    margin-left: 0vw;
-    margin-right: 0vw;
-  }
-}
-
-@media only screen and (max-width: 768px) {
   #staff-image {
-    height: 300px;
-    width: 500px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  #staff-image {
-    height: 300px;
-    width: 100%;
+    height: auto;
+    width: 80vw;
   }
 }
 </style>
