@@ -45,25 +45,27 @@
   gap: 40px;
   display: flex;
   justify-content: center;
+  color: white;
 }
 .footer {
   position: absolute;
   bottom: 0;
   height: 100px;
   width: 100%;
-  background-color: #d4f0fd;
-  color: white;
+  background-color: #2c4e74;
   text-align: center;
   box-shadow: 10px 5px 20px rgb(0, 0, 0);
   overflow-y: hidden;
 }
 a {
   text-decoration: none;
-  color: #062b50;
-}
-a:hover {
   color: white;
 }
+
+a:hover {
+  color: black;
+}
+
 a:active {
   text-decoration: none;
 }

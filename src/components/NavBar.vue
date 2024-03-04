@@ -1,7 +1,7 @@
 <template>
   <!-- Navbar start -->
   <div id="nav-bar">
-    <v-app-bar height="70" color="#D4F0FD" prominent>
+    <v-app-bar height="70" color="#2C4E74" prominent>
       <div class="logo-container">
         <RouterLink to="/"
           ><img alt="Logo" class="logo" src="@/assets/img/CloudifyLogo.png" width="55" height="55"
@@ -10,7 +10,7 @@
       <!-- Spacer for nav icon and logo -->
       <v-spacer></v-spacer>
       <div><h1>Cloudify</h1></div>
-    <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
       <v-app-bar-nav-icon
         size="x-large"
         variant="text"
@@ -21,7 +21,9 @@
   <!-- Navbar end -->
   <!-- Navigation drawer start -->
   <v-navigation-drawer
-    color="#B5E6FA"
+    id="navigation-drawer"
+    color="#DBE2EA"
+    style="height: 41vh"
     v-model="drawer"
     location="right"
     temporary
@@ -31,6 +33,7 @@
       variant="text"
       append-icon="mdi-chevron-right"
       size="large"
+      style="margin-top: 2vh"
       @click.stop="drawer = !drawer"
       >Close</v-btn
     >
@@ -39,6 +42,8 @@
     <RouterLink to="/">Home</RouterLink>
     <v-divider class="border-opacity-100" color="black"></v-divider>
     <RouterLink to="/about">About</RouterLink>
+    <v-divider class="border-opacity-100" color="black"></v-divider>
+    <RouterLink to="#">Favourites</RouterLink>
     <v-divider class="border-opacity-100" color="black"></v-divider>
   </v-navigation-drawer>
   <!-- Navigation drawer end-->
@@ -59,6 +64,16 @@ export default {
 </script>
 
 <style scoped>
+/* Suggestion */
+/* h1 {
+  user-select: none;
+  font-weight: 200;
+  font-size: 2.8rem;
+} */
+
+h1 {
+  user-select: none;
+}
 .logo-container {
   height: auto;
   margin-top: 0.4rem;
@@ -92,4 +107,10 @@ a:visited {
 #nav-bar {
   margin-bottom: 70px;
 }
+/* 
+@media screen and (max-width: 900px) {
+  #navigation-drawer {
+    height: 900px !important;
+  }
+} */
 </style>
