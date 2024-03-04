@@ -11,27 +11,33 @@
     </div>
 
     <div id="about-us-text">
-      <h2>Text about</h2>
+      <h2>Cloudify</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quibusdam odio itaque
-        quaerat iusto molestias corporis aspernatur fugit, corrupti, aliquid impedit temporibus modi
-        fuga magnam nostrum, officiis nemo! Perferendis praesentium repudiandae adipisci repellendus
-        eligendi voluptates impedit consectetur rem quae sed?
+        Welcome to our "About Us" page. We are a team of five frontend developer students from
+        IT-Högskolan, driven by our passion for technology and innovation. Together, we created a
+        weather forecast website designed to be both user-friendly and visually appealing, making
+        weather information accessible to everyone.
       </p>
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis voluptas necessitatibus
-        perferendis excepturi quidem assumenda ipsam accusamus, possimus, nihil consequatur
-        praesentium voluptatibus aperiam dolore soluta animi omnis officia reiciendis. Maxime autem
-        labore dolore exercitationem aliquid deserunt tempora alias maiores ex mollitia est
-        laboriosam fugit quidem, a perferendis quaerat dolorum ea.
+        Our project is the result of hours of collaboration, where each of us brought our unique
+        strengths and perspectives to the table. From the initial concept to the final
+        implementation, we focused on creating an intuitive interface and reliable source for
+        weather forecasts, demonstrating our dedication to quality and user experience. This journey
+        has not only allowed us to apply what we've learned in a practical setting but also to grow
+        as developers and teammates.
       </p>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit dolor quasi, odio
-        consequatur unde placeat, in quod neque provident temporibus accusantium blanditiis
-        consequuntur! Eius, incidunt, inventore distinctio officiis adipisci, ducimus sed accusamus
-        quia commodi obcaecati perferendis accusantium porro ipsam ipsum iure quos suscipit cumque
-        quisquam?
+        Our project represents our commitment to teamwork, learning, and applying our skills to
+        create something meaningful. Thank you for visiting our site and for your interest in our
+        journey. We're excited about the future and the opportunities to continue innovating.
       </p>
+      <ul>
+        <li>Malin Johansson</li>
+        <li>Alex Nelgard</li>
+        <li>Hanna Eriksson</li>
+        <li>Isabelle Franzén</li>
+        <li>Albin Lundmark</li>
+      </ul>
     </div>
   </div>
 
@@ -43,8 +49,10 @@
             <div class="left-inner-container">
               <h2>Contact us</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur provident, iste
-                error nihil vero atque nobis magni repudiandae? Animi, rem.
+                We're here to answer any questions you might have about our weather forecast website
+                or our journey as developers. Whether you're curious about the technology behind our
+                project, have feedback to share, or just want to say hello, we'd love to hear from
+                you.
               </p>
               <img id="cloudifyLogo" src="../assets/img/CloudifyLogo.png" alt="" />
               <h3><v-icon class="footerIcon" icon="mdi-phone"></v-icon> 123-456-789</h3>
@@ -87,13 +95,21 @@
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 2fr 1.5fr;
+  margin-top: 4vh;
 }
 
+li {
+  font-size: 1rem;
+}
 #about-us-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 5vh;
+}
+
+#about-us-container h1 {
+  margin-bottom: 2vh;
 }
 
 #staff-image {
@@ -107,6 +123,10 @@
   line-height: 25px;
   font-size: 18px;
   padding-right: 40px;
+}
+
+#about-us-text p {
+  margin-bottom: 2rem;
 }
 
 #about-us-text h2 {
@@ -138,6 +158,10 @@
   height: 60px;
 }
 
+h3 {
+  font-size: 1rem;
+}
+
 /* Form */
 
 .mdi-phone {
@@ -145,9 +169,8 @@
 }
 
 .container {
-  background-color: rgb(153, 187, 197);
+  background-color: #dbe2ea;
   display: flex;
-  border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 10px 5px;
   overflow: hidden;
   width: 768px;
@@ -175,10 +198,15 @@ h2 {
 }
 
 .left-inner-container {
-  height: 40vh;
+  height: 52vh;
   width: 100%;
   text-align: center;
   margin-top: 120px;
+}
+
+.left-inner-container p {
+  padding-left: 3vw;
+  padding: 0 3vw 2vh 3vw;
 }
 
 .left-container p {
@@ -207,7 +235,7 @@ textarea {
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
-  width: 100%;
+  width: 95%;
   font-size: 0.8rem;
 }
 
@@ -244,6 +272,10 @@ form p {
   .form-container {
     flex-direction: column;
     height: auto;
+  }
+
+  .container {
+    box-shadow: none;
   }
 
   .left-container,
