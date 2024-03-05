@@ -1,9 +1,8 @@
 <script>
-import { useFavouriteStore } from '@/store/FavouriteStore'
+import { useFavouriteStore } from '../store/FavouriteStore'
 export default {
   setup() {
     const FavouriteStore = useFavouriteStore()
-
     return { FavouriteStore }
   }
 }
