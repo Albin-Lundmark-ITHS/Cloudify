@@ -11,53 +11,50 @@
     </div>
 
     <div id="about-us-text">
-      <h2>Text about</h2>
+      <h2>Cloudify</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quibusdam odio itaque
-        quaerat iusto molestias corporis aspernatur fugit, corrupti, aliquid impedit temporibus modi
-        fuga magnam nostrum, officiis nemo! Perferendis praesentium repudiandae adipisci repellendus
-        eligendi voluptates impedit consectetur rem quae sed?
+        Welcome to our "About Us" page. We are a team of five frontend developer students from
+        IT-Högskolan, driven by our passion for technology and innovation. Together, we created a
+        weather forecast website designed to be both user-friendly and visually appealing, making
+        weather information accessible to everyone.
       </p>
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis voluptas necessitatibus
-        perferendis excepturi quidem assumenda ipsam accusamus, possimus, nihil consequatur
-        praesentium voluptatibus aperiam dolore soluta animi omnis officia reiciendis. Maxime autem
-        labore dolore exercitationem aliquid deserunt tempora alias maiores ex mollitia est
-        laboriosam fugit quidem, a perferendis quaerat dolorum ea.
+        Our project is the result of hours of collaboration, where each of us brought our unique
+        strengths and perspectives to the table. From the initial concept to the final
+        implementation, we focused on creating an intuitive interface and reliable source for
+        weather forecasts, demonstrating our dedication to quality and user experience. This journey
+        has not only allowed us to apply what we've learned in a practical setting but also to grow
+        as developers and teammates.
       </p>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit dolor quasi, odio
-        consequatur unde placeat, in quod neque provident temporibus accusantium blanditiis
-        consequuntur! Eius, incidunt, inventore distinctio officiis adipisci, ducimus sed accusamus
-        quia commodi obcaecati perferendis accusantium porro ipsam ipsum iure quos suscipit cumque
-        quisquam?
+        Our project represents our commitment to teamwork, learning, and applying our skills to
+        create something meaningful. Thank you for visiting our site and for your interest in our
+        journey. We're excited about the future and the opportunities to continue innovating.
       </p>
+      <ul>
+        <li>Malin Johansson</li>
+        <li>Alex Nelgard</li>
+        <li>Hanna Eriksson</li>
+        <li>Isabelle Franzén</li>
+        <li>Albin Lundmark</li>
+      </ul>
     </div>
   </div>
 
   <div id="contact-container">
     <div id="contact-field">
-      <!-- <div id="contact-field-text">
-      <h2>Contact us</h2>
-      <img id="cloudifyLogo" src="../assets/img/CloudifyLogo.png" alt="" />
-      <h3>Phone:</h3>
-      <h4>123-456-789</h4>
-      <h3>Email: cloudify@cloudify.com</h3>
-      <h3>Address:</h3>
-      <h4>Cloud St 15, New York</h4>
-    </div> -->
       <div class="container">
         <div class="form-container">
           <div class="left-container">
             <div class="left-inner-container">
               <h2>Contact us</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur provident, iste
-                error nihil vero atque nobis magni repudiandae? Animi, rem.
+                We're here to answer any questions you might have about our weather forecast website
+                or our journey as developers. Whether you're curious about the technology behind our
+                project, have feedback to share, or just want to say hello, we'd love to hear from
+                you.
               </p>
               <img id="cloudifyLogo" src="../assets/img/CloudifyLogo.png" alt="" />
-
-              <!--   <prepend-icon=""> -->
               <h3><v-icon class="footerIcon" icon="mdi-phone"></v-icon> 123-456-789</h3>
               <h3>
                 <v-icon class="footerIcon" icon="mdi-email-outline"></v-icon>cloudify@cloudify.com
@@ -93,12 +90,17 @@
 </template>
 
 <style scoped>
+/* Meet the staff */
 #grid-container {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 2fr 1.5fr;
+  margin-top: 4vh;
 }
 
+li {
+  font-size: 1rem;
+}
 #about-us-container {
   display: flex;
   flex-direction: column;
@@ -106,9 +108,13 @@
   margin-bottom: 5vh;
 }
 
+#about-us-container h1 {
+  margin-bottom: 2vh;
+}
+
 #staff-image {
   height: 65vh;
-  width: 950px;
+  width: auto;
 }
 
 #about-us-text {
@@ -119,24 +125,29 @@
   padding-right: 40px;
 }
 
+#about-us-text p {
+  margin-bottom: 2rem;
+}
+
+#about-us-text h2 {
+  overflow-y: hidden;
+}
+
+/* Contact information */
+
 #contact-container {
-  display: flex; /*
-  justify-content: center; */
+  display: flex;
   margin-bottom: 5vh;
 }
 
 #contact-field {
   display: flex;
   justify-content: center;
-  text-align: center; /*
-  background-color: #d4f0fd;
-  border: 1px solid rgba(0, 0, 0, 0.116); */
+  text-align: center;
   width: 100%;
   margin: 40px 5vw 70px 5vw;
   padding-top: 4vh;
   padding-bottom: 5vh;
-  /*  border: 4px ridge rgba(104, 125, 126, 0.575);
-  box-shadow: 60px -16px teal; */
 }
 
 #contact-field-text {
@@ -147,17 +158,19 @@
   height: 60px;
 }
 
-/* Form */
+h3 {
+  font-size: 1rem;
+}
 
+/* Form */
 
 .mdi-phone {
   margin-right: 8px;
 }
 
 .container {
-  background-color: rgb(153, 187, 197);
+  background-color: #dbe2ea;
   display: flex;
-  border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 10px 5px;
   overflow: hidden;
   width: 768px;
@@ -174,10 +187,32 @@ h2 {
   display: flex;
 }
 
+/* Left container */
+
 .left-container {
   flex: 1;
   height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.left-inner-container {
+  height: 52vh;
+  width: 100%;
+  text-align: center;
+  margin-top: 120px;
+}
+
+.left-inner-container p {
+  padding-left: 3vw;
+  padding: 0 3vw 2vh 3vw;
+}
+
+.left-container p {
+  font-size: 0.9rem;
+}
+/* Right container */
 .right-container {
   display: flex;
   flex: 1;
@@ -187,24 +222,6 @@ h2 {
   background-color: white;
 }
 
-.left-container {
-  display: flex;
-  flex: 1; /* 
-  height: 480px; */
-  justify-content: center;
-  align-items: center;
-}
-
-.left-container p {
-  font-size: 0.9rem;
-}
-
-.left-inner-container {
-  height: 50%;
-  width: 100%;
-  text-align: center;
-  margin-top: 120px;
-}
 .right-inner-container {
   width: 70%;
   height: 80%;
@@ -218,7 +235,7 @@ textarea {
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
-  width: 100%;
+  width: 95%;
   font-size: 0.8rem;
 }
 
@@ -244,40 +261,57 @@ button {
 button:hover {
   opacity: 0.7;
 }
-@media only screen and (max-width: 600px) {
-  .left-container {
-    display: none;
-  }
-  .lg-view {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .sm-view {
-    display: none;
-  }
-}
-
 form p {
   text-align: left;
 }
 
-/* Responsive layout adjustments */
-@media screen and (min-width: 600px) {
-  .col-25 {
-    width: 25%; /* Adjust column width for larger screens */
-    margin-left: 25px; /* Add some left margin for spacing */
+/* Media queries */
+
+/* Form */
+@media only screen and (max-width: 900px) {
+  .form-container {
+    flex-direction: column;
+    height: auto;
   }
-  .col-75 {
-    width: 70%; /* Adjust column width for larger screens */
+
+  .container {
+    box-shadow: none;
   }
-  input[type='submit'] {
-    width: auto; /* Adjust submit button width on larger screens */
-    float: right; /* Align the submit button to the right */
+
+  .left-container,
+  .right-container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left-inner-container,
+  .right-inner-container {
+    margin-top: 20px;
+    width: 90%;
+  }
+
+  /* Adjust the height of the right container */
+  .right-container {
+    min-height: 650px; /* Adjust this value as needed to fit content */
   }
 }
 
+@media screen and (min-width: 600px) {
+  .col-25 {
+    width: 25%;
+    margin-left: 25px;
+  }
+  .col-75 {
+    width: 70%;
+  }
+  input[type='submit'] {
+    width: auto;
+    float: right;
+  }
+}
+
+/* Meet the team */
 @media only screen and (max-width: 1400px) {
   #grid-container {
     display: grid;
@@ -291,23 +325,9 @@ form p {
     padding-right: 4vw;
   }
 
-  #contact-field {
-    margin-left: 0vw;
-    margin-right: 0vw;
-  }
-}
-
-@media only screen and (max-width: 768px) {
   #staff-image {
-    height: 300px;
-    width: 500px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  #staff-image {
-    height: 300px;
-    width: 100%;
+    height: auto;
+    width: 80vw;
   }
 }
 </style>
