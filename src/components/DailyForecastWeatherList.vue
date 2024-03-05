@@ -140,7 +140,7 @@ export default {
   margin-top: 5vh;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
 }
 
 .card-content {

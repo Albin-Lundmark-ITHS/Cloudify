@@ -177,6 +177,7 @@ h3 {
   width: 70%;
   min-height: 550px;
   min-width: 370px;
+  margin-bottom: 5rem;
 }
 
 h2 {
