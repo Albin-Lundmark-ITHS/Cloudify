@@ -9,7 +9,7 @@ export const useForecastWeatherStore = defineStore('forecast-weather', {
     async getForecastWeather() {
       // place as parameter later instead of auto:ip adress?
       try {
-        const apiKey = '2a1aabcb3f8f49fca60101701242002'
+        const apiKey = '3cdf684a5804447ebbb83645240503'
         const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=auto:ip&days=8`
 
         const response = await axios.get(apiUrl)

@@ -195,6 +195,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: hidden;
 }
 
 .left-inner-container {
