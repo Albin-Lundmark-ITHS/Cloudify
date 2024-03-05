@@ -7,6 +7,26 @@ export default {
     ForecastWeatherStore.getForecastWeather() // Call the getForecastWeather function in the store.
 
     return { ForecastWeatherStore }
+  },
+  data: () => ({
+    overlay: false
+  }),
+  methods: {
+    openOverlay(day) {
+      // Set the selected day and open the overlay.
+      this.selectedDay = day
+      this.overlay = true // Update the overlay state.
+    },
+    closeOverlay() {
+      // Close the overlay.
+      this.selectedDay = null
+      this.overlay = false // Update the overlay state.
+    },
+    extractTime(dateTimeString) {
+      // Split the string into an array, retrieves the second element of the array, the time part.
+      const timePart = dateTimeString.split(' ')[2]
+      return timePart || null
+    }
   }
 }
 </script>
@@ -15,7 +35,7 @@ export default {
   <v-card
     elevation="12"
     class="mx-auto"
-    width="600"
+    width="550"
     prepend-icon="mdi-map-marker"
     v-if="ForecastWeatherStore.currentForecastData"
   >
@@ -45,10 +65,73 @@ export default {
         <v-card-text class="text-content condition">
           {{ day.day.condition.text }}
         </v-card-text>
-        <v-card-text class="text-content"> {{ day.day.maxtemp_c }}&deg; C </v-card-text>
+        <v-card-text class="text-content"> {{ Math.round(day.day.maxtemp_c) }}&deg; C </v-card-text>
+        <v-btn
+          variant="plain"
+          size="regular"
+          @click="openOverlay(day)"
+          icon="mdi-chevron-right"
+        ></v-btn>
         <v-divider class="border-opacity-100"></v-divider>
       </div>
     </v-card-text>
+    <!-- Overlay start. -->
+    <v-overlay v-model="overlay" class="align-center justify-center">
+      <v-card class="overlay card-content">
+        <v-row justify="center">
+          <v-card-text class="text-content condition">
+            <v-card-title>{{ selectedDay ? selectedDay.date : '' }}</v-card-title>
+            <template v-if="selectedDay">
+              <v-card-text class="text-content condition">Hourly report</v-card-text>
+              <v-virtual-scroll
+                :items="[...new Set(selectedDay.hour.map((hour) => hour.time))]"
+                :item-height="50"
+                height="450"
+              >
+                <template v-slot="{ item }">
+                  <!-- Find the first occurrence of the hour time key in the array. -->
+                  <div
+                    v-for="(hour, index) in selectedDay.hour.filter((h) => h.time === item)"
+                    :key="index"
+                    class="card-content"
+                  >
+                    <v-card-text class="text-content">
+                      {{ extractTime(selectedDay.date + ' ' + hour.time) }}
+                    </v-card-text>
+                    <v-card-text class="text-content">
+                      {{ Math.round(hour.temp_c) }}&deg;C
+                    </v-card-text>
+                    <v-card-text class="text-content condition">
+                      {{ hour.condition.text }}</v-card-text
+                    >
+                    <img
+                      v-if="selectedDay"
+                      :src="hour.condition.icon"
+                      :alt="hour.condition.text"
+                      class="icon"
+                    />
+                  </div>
+                </template>
+              </v-virtual-scroll>
+            </template>
+            <v-card-text class="text-content btn-container">
+              <v-icon color="yellow-darken-2" icon="mdi-weather-sunset-up"></v-icon>Sunrise
+              {{ selectedDay ? selectedDay.astro.sunrise : '' }}
+
+              <v-icon color="yellow-darken-2" icon="mdi-weather-sunset-down"></v-icon>Sunset
+              {{ selectedDay ? selectedDay.astro.sunset : '' }}</v-card-text
+            >
+            <div class="btn-container">
+              <v-btn flat color="#2C4E74" @click="closeOverlay">
+                Close
+                <v-icon class="button-icon" icon="mdi-close" size="large"></v-icon>
+              </v-btn>
+            </div>
+          </v-card-text>
+        </v-row>
+      </v-card>
+    </v-overlay>
+    <!-- Overlay end. -->
   </v-card>
 </template>
 
@@ -73,14 +156,32 @@ export default {
 .text-content {
   flex: 1;
 }
+.overlay {
+  width: 70vw;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-icon {
+  margin-left: 0.5rem;
+  margin-top: 0.1vh;
+}
 
 @media (max-width: 600px) {
   .mx-auto {
     margin-top: 5vh;
     display: flex;
     flex-wrap: wrap;
-    max-width: 90%; /* Or fit-content? */
+    max-width: 95%; /* Or 95vw, or fit content to remove space on the side*/
   }
+
   .icon {
     margin-right: 0;
     margin-bottom: 10px;
@@ -94,6 +195,13 @@ export default {
 
   .condition {
     flex: 2;
+  }
+  .overlay {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
   }
 }
 </style>
