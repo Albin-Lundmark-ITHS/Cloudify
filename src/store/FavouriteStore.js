@@ -19,10 +19,8 @@ export const useFavouriteStore = defineStore('favouriteStore', {
     addToFavourites(city) {
       const index = this.favourites.indexOf(city)
       if (index !== -1) {
-        // City is already a favorite, remove it
         this.favourites.splice(index, 1)
       } else {
-        // City is not a favorite, add it
         this.favourites.push(city)
       }
     },
