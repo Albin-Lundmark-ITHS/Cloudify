@@ -10,12 +10,11 @@
     ></v-text-field>
   </v-responsive>
   <v-card :class="backgroundImage" class="weather-card mx-auto">
-    <v-card-item :title="currentCity + ', ' + currentCountry" >
-        <template v-slot:subtitle>
-          {{ text }}
-        </template>
-      </v-card-item>
-
+    <v-card-item :title="currentCity + ', ' + currentCountry">
+      <template v-slot:subtitle>
+        {{ text }}
+      </template>
+    </v-card-item>
 
     <v-card-text class="py-0">
       <v-row align:center no-gutters>
@@ -98,7 +97,7 @@ export default {
   },
   methods: {
     fetchWeatherData() {
-      const url = `http://api.weatherapi.com/v1/current.json?key=2a1aabcb3f8f49fca60101701242002&q=${this.cityInput}&aqi=no`
+      const url = `http://api.weatherapi.com/v1/current.json?key=3cdf684a5804447ebbb83645240503&q=${this.cityInput}&aqi=no`
 
       axios
         .get(url)
@@ -130,23 +129,69 @@ export default {
     backgroundImage() {
       if (this.weatherCode === 1000 && this.isDay === 1) {
         return 'bg-sunny'
-      } else if(this.weatherCode === 1000 && this.isDay === 0) {
+      } else if (this.weatherCode === 1000 && this.isDay === 0) {
         return 'bg-clear-night'
-      }
-      else if (this.weatherCode === 1003 || this.weatherCode === 1006 || this.weatherCode === 1009) {
+      } else if (
+        this.weatherCode === 1003 ||
+        this.weatherCode === 1006 ||
+        this.weatherCode === 1009
+      ) {
         return 'bg-cloudy'
-      } else if (this.weatherCode === 1030 || this.weatherCode === 1135 || this.weatherCode === 1147) {
+      } else if (
+        this.weatherCode === 1030 ||
+        this.weatherCode === 1135 ||
+        this.weatherCode === 1147
+      ) {
         return 'bg-foggy'
-      } else if (this.weatherCode === 1063 || this.weatherCode === 1072 || this.weatherCode === 1150 ||
-       this.weatherCode === 1153 || this.weatherCode === 1168 || this.weatherCode === 1180 || this.weatherCode === 1183 || this.weatherCode === 1186 || this.weatherCode === 1189 || this.weatherCode
-        === 1192 || this.weatherCode === 1195 || this.weatherCode === 1198 || this.weatherCode === 1201 || this.weatherCode === 1240 || this.weatherCode === 1243 || this.weatherCode === 1246) {
+      } else if (
+        this.weatherCode === 1063 ||
+        this.weatherCode === 1072 ||
+        this.weatherCode === 1150 ||
+        this.weatherCode === 1153 ||
+        this.weatherCode === 1168 ||
+        this.weatherCode === 1180 ||
+        this.weatherCode === 1183 ||
+        this.weatherCode === 1186 ||
+        this.weatherCode === 1189 ||
+        this.weatherCode === 1192 ||
+        this.weatherCode === 1195 ||
+        this.weatherCode === 1198 ||
+        this.weatherCode === 1201 ||
+        this.weatherCode === 1240 ||
+        this.weatherCode === 1243 ||
+        this.weatherCode === 1246
+      ) {
         return 'bg-rain'
-      } else if (this.weatherCode === 1066 || this.weatherCode === 1069 || this.weatherCode === 1114 ||
-       this.weatherCode === 1117 || this.weatherCode === 1171 || this.weatherCode === 1204 || this.weatherCode === 1207 || this.weatherCode === 1210 || this.weatherCode === 1213 || this.weatherCode
-        === 1216 || this.weatherCode === 1219 || this.weatherCode === 1222 || this.weatherCode === 1225 || this.weatherCode === 1237 || this.weatherCode === 1249 || this.weatherCode === 1252 || this.weatherCode === 1255 || this.weatherCode === 1258 || this.weatherCode === 1261 || this.weatherCode === 1264) {
+      } else if (
+        this.weatherCode === 1066 ||
+        this.weatherCode === 1069 ||
+        this.weatherCode === 1114 ||
+        this.weatherCode === 1117 ||
+        this.weatherCode === 1171 ||
+        this.weatherCode === 1204 ||
+        this.weatherCode === 1207 ||
+        this.weatherCode === 1210 ||
+        this.weatherCode === 1213 ||
+        this.weatherCode === 1216 ||
+        this.weatherCode === 1219 ||
+        this.weatherCode === 1222 ||
+        this.weatherCode === 1225 ||
+        this.weatherCode === 1237 ||
+        this.weatherCode === 1249 ||
+        this.weatherCode === 1252 ||
+        this.weatherCode === 1255 ||
+        this.weatherCode === 1258 ||
+        this.weatherCode === 1261 ||
+        this.weatherCode === 1264
+      ) {
         return 'bg-snowfall'
-      } else if (this.weatherCode === 1087 || this.weatherCode === 1273 || this.weatherCode === 1276 ||
-       this.weatherCode === 1279 || this.weatherCode === 1282) {
+      } else if (
+        this.weatherCode === 1087 ||
+        this.weatherCode === 1273 ||
+        this.weatherCode === 1276 ||
+        this.weatherCode === 1279 ||
+        this.weatherCode === 1282
+      ) {
         return 'bg-thunder'
       } else {
         return 'bg-default'
@@ -173,8 +218,8 @@ export default {
 
 @media (max-width: 800px) {
   .text-field-input {
-  max-width: 80vw;
-}
+    max-width: 80vw;
+  }
 }
 </style>
 
@@ -199,48 +244,41 @@ export default {
   color: white;
 }
 .bg-sunny {
-  background-image:
-  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  url('../assets/bilder/sunny.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('../assets/bilder/sunny.jpg');
   background-size: cover;
 }
 .bg-clear-night {
-  background-image:
-  url('../assets/bilder/clear-night.jpg');
+  background-image: url('../assets/bilder/clear-night.jpg');
   background-size: cover;
 }
 .bg-cloudy {
-  background-image:
-  linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
-  url('../assets/bilder/cloudly.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+    url('../assets/bilder/cloudly.jpg');
   background-size: cover;
 }
 .bg-snowfall {
-  background-image:
-  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-  url('../assets/bilder/snowfall.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url('../assets/bilder/snowfall.jpg');
   background-size: cover;
 }
 .bg-rain {
-  background-image:
-  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-  url('../assets/bilder/rain.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url('../assets/bilder/rain.jpg');
   background-size: cover;
 }
 .bg-thunder {
-  background-image:
-  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-  url('../assets/bilder/thunder.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url('../assets/bilder/thunder.jpg');
   background-size: cover;
 }
 .bg-foggy {
-  background-image:
-  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-  url('../assets/bilder/foggy.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url('../assets/bilder/foggy.jpg');
   background-size: cover;
 }
-.bg-default{
-    background-color: #D4E9F4;
+.bg-default {
+  background-color: #d4e9f4;
 }
 
 @media (min-width: 800px) {
