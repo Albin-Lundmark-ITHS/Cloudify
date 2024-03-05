@@ -46,12 +46,14 @@
   display: flex;
   justify-content: center;
   color: white;
+  padding: 5px;
 }
 .footer {
   position: absolute;
   bottom: 0;
-  height: 100px;
+  height: 140px;
   width: 100%;
+  padding: 20px;
   background-color: #2c4e74;
   text-align: center;
   box-shadow: 10px 5px 20px rgb(0, 0, 0);
