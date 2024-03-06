@@ -248,8 +248,7 @@ textarea:focus {
 
 button {
   border-radius: 20px;
-  border: 1px solid #00b4cf;
-  background-color: #00b4cf;
+  background-color: #2c4e74;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -261,7 +260,7 @@ button {
 }
 
 button:hover {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 form p {
   text-align: left;

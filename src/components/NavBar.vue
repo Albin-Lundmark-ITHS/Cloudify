@@ -43,8 +43,6 @@
     <v-divider class="border-opacity-100" color="black"></v-divider>
     <RouterLink to="/about">About</RouterLink>
     <v-divider class="border-opacity-100" color="black"></v-divider>
-    <RouterLink to="#">Favourites</RouterLink>
-    <v-divider class="border-opacity-100" color="black"></v-divider>
   </v-navigation-drawer>
   <!-- Navigation drawer end-->
 </template>
