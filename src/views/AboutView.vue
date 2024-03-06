@@ -66,7 +66,7 @@
           </div>
           <div class="right-container">
             <div class="right-inner-container">
-              <form action="#">
+              <form ref="form" action="#">
                 <h2 class="lg-view">Let's Chat!</h2>
                 <p>* Required</p>
                 <div class="social-container">
@@ -74,12 +74,40 @@
                   <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                   <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <input type="text" placeholder="Name *" />
-                <input type="email" placeholder="Email *" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name *"
+                  v-model="enteredName"
+                  @input="validateField"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email *"
+                  @input="validateField"
+                  required
+                />
                 <input type="text" placeholder="Company" />
-                <input type="phone" placeholder="Phone" />
-                <textarea rows="4" placeholder="Message"></textarea>
-                <button>Submit</button>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone *"
+                  pattern="[0-9]{10}"
+                  @input="validateField"
+                  required
+                />
+
+                <textarea
+                  rows="4"
+                  placeholder="Write a message, max 120 characters *"
+                  maxlength="120"
+                  @input="validateField"
+                  name="textarea"
+                  required
+                ></textarea>
+                <button id="submitBtn" @click.prevent="submitPopup">Submit</button>
               </form>
             </div>
           </div>
@@ -292,9 +320,8 @@ form p {
     width: 90%;
   }
 
-  /* Adjust the height of the right container */
   .right-container {
-    min-height: 650px; /* Adjust this value as needed to fit content */
+    min-height: 650px;
   }
 }
 
@@ -310,6 +337,10 @@ form p {
     width: auto;
     float: right;
   }
+}
+
+input:required:invalid {
+  border-color: red;
 }
 
 /* Meet the team */
@@ -332,3 +363,68 @@ form p {
   }
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      enteredName: ''
+    }
+  },
+  methods: {
+    validateField(event) {
+      const field = event.target
+      field.setCustomValidity('') // Reset custom validity message
+
+      // Check if the field is not valid
+      if (!field.validity.valid) {
+        // Determine the field by its name or id and set a custom message
+        switch (
+          field.name // or use field.id if that's more appropriate
+        ) {
+          case 'username':
+            field.setCustomValidity('Please enter your name.')
+            break
+          case 'email':
+            if (field.validity.typeMismatch) {
+              field.setCustomValidity('Please enter a valid email address.')
+            } else if (field.validity.valueMissing) {
+              field.setCustomValidity('Please enter e-mail.')
+            }
+            break
+          case 'phone':
+            if (field.validity.patternMismatch) {
+              field.setCustomValidity('The phone numbers needs to be 10 digits.')
+            } else if (field.validity.valueMissing) {
+              field.setCustomValidity('Please enter phone number.')
+            }
+            break
+          case 'textarea':
+            field.setCustomValidity('Please enter your message.')
+            break
+          default:
+            field.setCustomValidity('Please fill out this field.')
+        }
+      }
+    },
+    submitPopup() {
+      const form = this.$refs.form
+      let isValid = form.checkValidity()
+      const inputs = form.querySelectorAll('input[required], textarea[required]')
+
+      // Trigger custom validation for each input
+      inputs.forEach((input) => {
+        this.validateField({ target: input })
+      })
+
+      if (isValid) {
+        alert(
+          `Thank you for your message, ${this.enteredName}! We have received your inquiry and will get back to you shortly.`
+        )
+      } else {
+        form.reportValidity()
+      }
+    }
+  }
+}
+</script>
