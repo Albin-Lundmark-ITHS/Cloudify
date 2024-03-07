@@ -31,11 +31,20 @@ export const useFavouriteStore = defineStore('favouriteStore', {
         this.favourites.splice(index, 1)
         this.saveFavourites()
       } else {
-        console.error('City not found in favourites.')
+        console.error('City not found in favorites.')
       }
     },
     saveFavourites() {
       localStorage.setItem('Favourites', JSON.stringify(this.favourites))
+    },
+    loadFavourites() {
+      const favoriter = localStorage.getItem('Favourites')
+      if (favoriter) {
+        this.favourites = favoriter
+      }
     }
+  },
+  created(){
+    this.loadFavourites()
   }
 })
