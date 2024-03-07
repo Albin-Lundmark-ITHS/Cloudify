@@ -23,12 +23,19 @@ export const useFavouriteStore = defineStore('favouriteStore', {
       } else {
         this.favourites.push(city)
       }
+      this.saveFavourites()
     },
     removeFromFavourites(city) {
-        const index = this.favourites.indexOf(city)
-        if (index !== -1) {
-          this.favourites.splice(index, 1)
-        }
+      const index = this.favourites.indexOf(city)
+      if (index !== -1) {
+        this.favourites.splice(index, 1)
+        this.saveFavourites()
+      } else {
+        console.error('City not found in favourites.')
       }
+    },
+    saveFavourites() {
+      localStorage.setItem('Favourites', JSON.stringify(this.favourites))
+    }
   }
 })
