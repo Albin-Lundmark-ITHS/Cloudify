@@ -374,14 +374,10 @@ export default {
   methods: {
     validateField(event) {
       const field = event.target
-      field.setCustomValidity('') // Reset custom validity message
+      field.setCustomValidity('')
 
-      // Check if the field is not valid
       if (!field.validity.valid) {
-        // Determine the field by its name or id and set a custom message
-        switch (
-          field.name // or use field.id if that's more appropriate
-        ) {
+        switch (field.name) {
           case 'username':
             field.setCustomValidity('Please enter your name.')
             break
@@ -411,8 +407,6 @@ export default {
       const form = this.$refs.form
       let isValid = form.checkValidity()
       const inputs = form.querySelectorAll('input[required], textarea[required]')
-
-      // Trigger custom validation for each input
       inputs.forEach((input) => {
         this.validateField({ target: input })
       })
