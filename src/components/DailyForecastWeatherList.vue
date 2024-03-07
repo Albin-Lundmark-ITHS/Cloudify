@@ -1,14 +1,32 @@
 <script>
-import { useForecastWeatherStore } from '@/store/ForecastWeatherStore'
+import { useWeatherStore } from '@/store/WeatherStore'
+import { ref, onMounted, watch } from 'vue'
 
 export default {
   setup() {
-    const ForecastWeatherStore = useForecastWeatherStore()
-    ForecastWeatherStore.getForecastWeather() // Call the getForecastWeather function in the store.
+    const WeatherStore = useWeatherStore()
+    const currentWeatherData = ref(null)
+    const selectedDay = ref(null)
 
-    return { ForecastWeatherStore }
+    // Fetching data when the component is mounted.
+    onMounted(async () => {
+      await WeatherStore.getAutomaticPosition()
+      WeatherStore.getCurrentWeather(WeatherStore.weatherData.location.name)
+    })
+
+    // Watch for changes in CurrentWeatherStore.currentWeatherData
+    watch(
+      () => WeatherStore.currentWeatherData,
+      (newData) => {
+        currentWeatherData.value = newData
+      }
+    )
+
+    return { WeatherStore, currentWeatherData, selectedDay }
   },
+
   data: () => ({
+    expand: false,
     overlay: false
   }),
   methods: {
@@ -32,28 +50,20 @@ export default {
 </script>
 
 <template>
-  <v-card
-    elevation="12"
-    class="mx-auto"
-    width="550"
-    prepend-icon="mdi-map-marker"
-    v-if="ForecastWeatherStore.currentForecastData"
-  >
+  <v-card class="mx-auto" width="550" prepend-icon="mdi-map-marker" v-if="currentWeatherData">
     <template v-slot:title>
-      {{ ForecastWeatherStore.currentForecastData.location.name }}
-      {{ ForecastWeatherStore.currentForecastData.location.country }}
+      {{ WeatherStore.currentWeatherData.location.name }}
+      {{ WeatherStore.currentWeatherData.location.country }}
     </template>
 
     <v-card-text>
       <div
-        v-for="(day, index) in ForecastWeatherStore.currentForecastData.forecast.forecastday.slice(
-          1
-        )"
+        v-for="(day, index) in WeatherStore.currentWeatherData.forecast.forecastday.slice(1)"
         :key="index"
         class="card-content"
       >
         <img
-          v-if="ForecastWeatherStore.currentForecastData"
+          v-if="WeatherStore.currentWeatherData"
           :src="day.day.condition.icon"
           :alt="day.day.condition.text"
           class="icon"
@@ -65,17 +75,18 @@ export default {
         <v-card-text class="text-content condition">
           {{ day.day.condition.text }}
         </v-card-text>
-        <v-card-text class="text-content"> {{ Math.round(day.day.maxtemp_c) }}&deg; C </v-card-text>
+        <v-card-text class="text-content"> {{ Math.round(day.day.maxtemp_c) }}&deg;C </v-card-text>
         <v-btn
           variant="plain"
-          size="regular"
+          size="small"
           @click="openOverlay(day)"
           icon="mdi-chevron-right"
         ></v-btn>
         <v-divider class="border-opacity-100"></v-divider>
       </div>
     </v-card-text>
-    <!-- Overlay start. -->
+
+    <!-- Overlay start -->
     <v-overlay v-model="overlay" class="align-center justify-center">
       <v-card class="overlay card-content">
         <v-row justify="center">
@@ -122,7 +133,7 @@ export default {
               {{ selectedDay ? selectedDay.astro.sunset : '' }}</v-card-text
             >
             <div class="btn-container">
-              <v-btn flat color="#2C4E74" @click="closeOverlay">
+              <v-btn flat color="#42A5F5" @click="closeOverlay">
                 Close
                 <v-icon class="button-icon" icon="mdi-close" size="large"></v-icon>
               </v-btn>
@@ -131,10 +142,8 @@ export default {
         </v-row>
       </v-card>
     </v-overlay>
-    <!-- Overlay end. -->
   </v-card>
 </template>
-
 <style scoped>
 .mx-auto {
   margin-top: 5vh;
