@@ -1,7 +1,7 @@
 <script setup>
 import WeatherCards from '../components/WeatherCards.vue'
 import DailyForecastWeatherList from '@/components/DailyForecastWeatherList.vue'
-import SearchPanel from '@/components/SearchPanel.vue';
+import SearchPanel from '@/components/SearchPanel.vue'
 </script>
 
 <template>

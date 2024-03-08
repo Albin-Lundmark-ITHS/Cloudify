@@ -1,3 +1,7 @@
+<script setup>
+import Card from './FlipCardDarkMode.vue'
+</script>
+
 <template>
   <!-- Navbar start -->
   <div id="nav-bar">
@@ -11,6 +15,8 @@
       <v-spacer></v-spacer>
       <div><h1>Cloudify</h1></div>
       <v-spacer></v-spacer>
+      <!-- Dark Mode toggle -->
+      <Card />
       <v-app-bar-nav-icon
         size="x-large"
         variant="text"
@@ -19,6 +25,7 @@
     </v-app-bar>
   </div>
   <!-- Navbar end -->
+
   <!-- Navigation drawer start -->
   <v-navigation-drawer
     id="navigation-drawer"
