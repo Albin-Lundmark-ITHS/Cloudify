@@ -1,20 +1,18 @@
 <script setup>
 import WeatherCards from '../components/WeatherCards.vue'
 import DailyForecastWeatherList from '@/components/DailyForecastWeatherList.vue'
+import FavouriteList from '@components/FavouriteList.vue'
 import SearchPanel from '@/components/SearchPanel.vue'
-import FavouriteList from '@/components/FavouriteList.vue'
+import { useDark } from '@vueuse/core'
+const isDark = useDark()
 </script>
 
 <template>
   <main>
-    <SearchPanel />
+    <SearchPanel :class="{ dark: isDark }" />
     <WeatherCards />
-    <section>
-      <h1 class="text-center">See your local forecast</h1>
-      <DailyForecastWeatherList />
-    </section>
-    <aside>
-      <FavouriteList />
-    </aside>
+    <h1 class="text-center">See your local forecast</h1>
+    <DailyForecastWeatherList :class="{ dark: isDark }" />
+    <FavouriteList :class="{ dark: isDark }" />
   </main>
 </template>
