@@ -1,4 +1,4 @@
-import {defineStore} from 'pinia'
+import { defineStore } from 'pinia'
 
 export const useFavouriteStore = defineStore('favouriteStore', {
   state: () => ({
@@ -20,8 +20,10 @@ export const useFavouriteStore = defineStore('favouriteStore', {
       const index = this.favourites.indexOf(city)
       if (index !== -1) {
         this.favourites.splice(index, 1)
+        console.log(city, 'removed from favourites')
       } else {
         this.favourites.push(city)
+        console.log(city, 'added to favourites')
       }
       this.saveFavourites()
     },
@@ -40,11 +42,11 @@ export const useFavouriteStore = defineStore('favouriteStore', {
     loadFavourites() {
       const favoriter = localStorage.getItem('Favourites')
       if (favoriter) {
-        this.favourites = favoriter
+        this.favourites = JSON.parse(favoriter)
       }
     }
-  },
-  created(){
+  } /* ,
+  created() {
     this.loadFavourites()
-  }
+  } */
 })
