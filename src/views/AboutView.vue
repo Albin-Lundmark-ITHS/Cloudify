@@ -1,114 +1,116 @@
 <template>
-  <div id="grid-container">
-    <div id="about-us-container">
-      <h1>Meet our team</h1>
+  <div class="darkToggle">
+    <div id="grid-container">
+      <div id="about-us-container">
+        <h1>Meet our team</h1>
 
-      <img
-        id="staff-image"
-        src="https://insidesmallbusiness.com.au/wp-content/uploads/2021/04/bigstock-192555907.jpg"
-        alt=""
-      />
+        <img
+          id="staff-image"
+          src="https://insidesmallbusiness.com.au/wp-content/uploads/2021/04/bigstock-192555907.jpg"
+          alt=""
+        />
+      </div>
+
+      <div id="about-us-text">
+        <h2>Cloudify</h2>
+        <p>
+          Welcome to our "About Us" page. We are a team of five frontend developer students from
+          IT-Högskolan, driven by our passion for technology and innovation. Together, we created a
+          weather forecast website designed to be both user-friendly and visually appealing, making
+          weather information accessible to everyone.
+        </p>
+        <p>
+          Our project is the result of hours of collaboration, where each of us brought our unique
+          strengths and perspectives to the table. From the initial concept to the final
+          implementation, we focused on creating an intuitive interface and reliable source for
+          weather forecasts, demonstrating our dedication to quality and user experience. This
+          journey has not only allowed us to apply what we've learned in a practical setting but
+          also to grow as developers and teammates.
+        </p>
+        <p>
+          Our project represents our commitment to teamwork, learning, and applying our skills to
+          create something meaningful. Thank you for visiting our site and for your interest in our
+          journey. We're excited about the future and the opportunities to continue innovating.
+        </p>
+        <ul>
+          <li>Malin Johansson</li>
+          <li>Alex Nelgard</li>
+          <li>Hanna Eriksson</li>
+          <li>Isabelle Franzén</li>
+          <li>Albin Lundmark</li>
+        </ul>
+      </div>
     </div>
 
-    <div id="about-us-text">
-      <h2>Cloudify</h2>
-      <p>
-        Welcome to our "About Us" page. We are a team of five frontend developer students from
-        IT-Högskolan, driven by our passion for technology and innovation. Together, we created a
-        weather forecast website designed to be both user-friendly and visually appealing, making
-        weather information accessible to everyone.
-      </p>
-      <p>
-        Our project is the result of hours of collaboration, where each of us brought our unique
-        strengths and perspectives to the table. From the initial concept to the final
-        implementation, we focused on creating an intuitive interface and reliable source for
-        weather forecasts, demonstrating our dedication to quality and user experience. This journey
-        has not only allowed us to apply what we've learned in a practical setting but also to grow
-        as developers and teammates.
-      </p>
-      <p>
-        Our project represents our commitment to teamwork, learning, and applying our skills to
-        create something meaningful. Thank you for visiting our site and for your interest in our
-        journey. We're excited about the future and the opportunities to continue innovating.
-      </p>
-      <ul>
-        <li>Malin Johansson</li>
-        <li>Alex Nelgard</li>
-        <li>Hanna Eriksson</li>
-        <li>Isabelle Franzén</li>
-        <li>Albin Lundmark</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="contact-container">
-    <div id="contact-field">
-      <div class="container">
-        <div class="form-container">
-          <div class="left-container">
-            <div class="left-inner-container">
-              <h2>Contact us</h2>
-              <p>
-                We're here to answer any questions you might have about our weather forecast website
-                or our journey as developers. Whether you're curious about the technology behind our
-                project, have feedback to share, or just want to say hello, we'd love to hear from
-                you.
-              </p>
-              <img id="cloudifyLogo" src="../assets/img/CloudifyLogo.png" alt="" />
-              <h3><v-icon class="footerIcon" icon="mdi-phone"></v-icon> 123-456-789</h3>
-              <h3>
-                <v-icon class="footerIcon" icon="mdi-email-outline"></v-icon>cloudify@cloudify.com
-              </h3>
-              <h3>
-                <v-icon class="footerIcon" icon="mdi-map-marker"></v-icon>Cloud St 15, New York
-              </h3>
+    <div id="contact-container">
+      <div id="contact-field">
+        <div class="container">
+          <div class="form-container">
+            <div class="left-container">
+              <div class="left-inner-container">
+                <h2>Contact us</h2>
+                <p>
+                  We're here to answer any questions you might have about our weather forecast
+                  website or our journey as developers. Whether you're curious about the technology
+                  behind our project, have feedback to share, or just want to say hello, we'd love
+                  to hear from you.
+                </p>
+                <img id="cloudifyLogo" src="../assets/img/CloudifyLogo.png" alt="" />
+                <h3><v-icon class="footerIcon" icon="mdi-phone"></v-icon> 123-456-789</h3>
+                <h3>
+                  <v-icon class="footerIcon" icon="mdi-email-outline"></v-icon>cloudify@cloudify.com
+                </h3>
+                <h3>
+                  <v-icon class="footerIcon" icon="mdi-map-marker"></v-icon>Cloud St 15, New York
+                </h3>
+              </div>
             </div>
-          </div>
-          <div class="right-container">
-            <div class="right-inner-container">
-              <form ref="form" action="#">
-                <h2 class="lg-view">Let's Chat!</h2>
-                <p>* Required</p>
-                <div class="social-container">
-                  <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                  <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name *"
-                  v-model="enteredName"
-                  @input="validateField"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email *"
-                  @input="validateField"
-                  required
-                />
-                <input type="text" placeholder="Company" />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone *"
-                  pattern="[0-9]{10}"
-                  @input="validateField"
-                  required
-                />
+            <div class="right-container">
+              <div class="right-inner-container">
+                <form ref="form" action="#">
+                  <h2 class="lg-view">Let's Chat!</h2>
+                  <p>* Required</p>
+                  <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name *"
+                    v-model="enteredName"
+                    @input="validateField"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email *"
+                    @input="validateField"
+                    required
+                  />
+                  <input type="text" placeholder="Company" />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone *"
+                    pattern="[0-9]{10}"
+                    @input="validateField"
+                    required
+                  />
 
-                <textarea
-                  rows="4"
-                  placeholder="Write a message, max 120 characters *"
-                  maxlength="120"
-                  @input="validateField"
-                  name="textarea"
-                  required
-                ></textarea>
-                <button id="submitBtn" @click.prevent="submitPopup">Submit</button>
-              </form>
+                  <textarea
+                    rows="4"
+                    placeholder="Write a message, max 120 characters *"
+                    maxlength="120"
+                    @input="validateField"
+                    name="textarea"
+                    required
+                  ></textarea>
+                  <button id="submitBtn" @click.prevent="submitPopup">Submit</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
