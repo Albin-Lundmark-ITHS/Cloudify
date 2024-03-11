@@ -1,7 +1,7 @@
 <script setup>
 import WeatherCards from '../components/WeatherCards.vue'
 import DailyForecastWeatherList from '@/components/DailyForecastWeatherList.vue'
-import FavouriteList from '@components/FavouriteList.vue'
+import FavouriteList from '@/components/FavouriteList.vue'
 import SearchPanel from '@/components/SearchPanel.vue'
 import { useDark } from '@vueuse/core'
 const isDark = useDark()
