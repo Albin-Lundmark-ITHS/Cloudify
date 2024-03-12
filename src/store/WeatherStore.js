@@ -6,6 +6,7 @@ export const useWeatherStore = defineStore('weather', {
     weatherData: null,
     currentWeatherData: null,
     search: '',
+    recentSearches: [],
     weatherCode: null,
     isDay: null
   }),
@@ -55,6 +56,36 @@ export const useWeatherStore = defineStore('weather', {
       } catch (error) {
         console.error('Error fetching weather:', error)
       }
+    },
+    addRecentSearch(searchedPlace) {
+      const placeName = searchedPlace.name
+      this.getCurrentWeather(placeName).then(() => {
+        if(this.currentWeatherData) {
+          const { location, current } = this.currentWeatherData
+          const searchItem = {
+            id: Date.now(),
+            name: location.name,
+            country: location.country,
+            temp_c: current.temp_c,
+            isDay: current.is_day,
+            condition: {
+              text: current.condition.text,
+              icon: current.condition.icon,
+              code: current.condition.code
+            }
+          }
+          this.recentSearches.unshift(searchItem);
+          this.recentSearches = this.recentSearches.slice(0, 4)
+          localStorage.setItem('recentSearches', JSON.stringify(this.recentSearches))
+        }
+      })
+    },
+  fetchRecentSearches() {
+    const savedSearches = localStorage.getItem('recentSearches')
+    if (savedSearches) {
+      this.recentSearches = JSON.parse(savedSearches);
     }
   }
+
+}
 })

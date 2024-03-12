@@ -218,7 +218,7 @@ export default {
   color: white;
 }
 .bg-sunny {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
     url('../assets/bilder/sunny.jpg');
   background-size: cover;
 }
@@ -237,7 +237,7 @@ export default {
   background-size: cover;
 }
 .bg-rain {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
     url('../assets/bilder/rain.jpg');
   background-size: cover;
 }
@@ -252,7 +252,7 @@ export default {
   background-size: cover;
 }
 .bg-default {
-  background-color: #d4e9f4;
+  background-color: #062b50;
 }
 
 @media (min-width: 800px) {
