@@ -11,10 +11,13 @@
       </template>
       <!-- Favourite button -->
       <v-btn
+        v-if="FavouriteStore.favourites.includes(currentWeatherData.location.name)"
         class="favButton"
-        @click="FavouriteStore.addToFavourites(currentWeatherData.location.name)"
+        @click="toggleFav"
         icon="mdi-heart"
-      ></v-btn>
+      >
+      </v-btn>
+      <v-btn v-else class="favButton" @click="toggleFav" icon="mdi-heart-outline"></v-btn>
     </v-card-item>
 
     <v-card-text class="py-0" v-if="currentWeatherData && currentWeatherData.current">
@@ -178,8 +181,15 @@ export default {
   },
   data: () => ({
     expand: false,
-    time: 0
-  })
+    time: 0,
+    isFav: false
+  }),
+  methods: {
+    toggleFav() {
+      this.isFav = !this.isFav
+      this.FavouriteStore.addToFavourites(this.currentWeatherData.location.name)
+    }
+  }
 }
 </script>
 

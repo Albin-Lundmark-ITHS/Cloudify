@@ -32,8 +32,9 @@ export const useFavouriteStore = defineStore('favouriteStore', {
       if (index !== -1) {
         this.favourites.splice(index, 1)
         this.saveFavourites()
+        console.log(city, 'removed from favourites')
       } else {
-        console.error('City not found in favorites.')
+        console.error('City not found in favorites')
       }
     },
     saveFavourites() {
