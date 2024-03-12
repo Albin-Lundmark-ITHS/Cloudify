@@ -222,8 +222,9 @@ export default {
   top: 5%;
 }
 .weather-card {
+  width: 100%;
   max-width: 90%;
-  margin-top: 2vh;
+  margin-top: 30px;
   margin-bottom: 5vh;
 }
 
@@ -280,7 +281,7 @@ export default {
 
 @media (min-width: 800px) {
   .weather-card {
-    max-width: 65%;
+    max-width: 85%;
   }
 }
 </style>
