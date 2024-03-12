@@ -9,6 +9,15 @@
         {{ currentWeatherData.location.name }}
         {{ currentWeatherData.location.country }}
       </template>
+      <!-- Favourite button -->
+      <v-btn
+        v-if="FavouriteStore.favourites.includes(currentWeatherData.location.name)"
+        class="favButton"
+        @click="toggleFav"
+        icon="mdi-heart"
+      >
+      </v-btn>
+      <v-btn v-else class="favButton" @click="toggleFav" icon="mdi-heart-outline"></v-btn>
     </v-card-item>
 
     <v-card-text class="py-0" v-if="currentWeatherData && currentWeatherData.current">
@@ -73,14 +82,16 @@
 
 <script>
 import { useWeatherStore } from '@/store/WeatherStore'
+import { useFavouriteStore } from '@/store/FavouriteStore'
 import { ref, onMounted, watch } from 'vue'
 
 export default {
   setup() {
     const WeatherStore = useWeatherStore()
+    const FavouriteStore = useFavouriteStore()
     const currentWeatherData = ref(null)
     const weatherCode = ref(null)
-   const isDay = ref(null)
+    const isDay = ref(null)
 
     // Use onMounted to fetch data when the component is mounted.
     onMounted(async () => {
@@ -98,7 +109,7 @@ export default {
       }
     )
 
-    return { currentWeatherData, weatherCode, isDay }
+    return { currentWeatherData, weatherCode, isDay, FavouriteStore }
   },
   computed: {
     backgroundImage() {
@@ -170,8 +181,15 @@ export default {
   },
   data: () => ({
     expand: false,
-    time: 0
-  })
+    time: 0,
+    isFav: false
+  }),
+  methods: {
+    toggleFav() {
+      this.isFav = !this.isFav
+      this.FavouriteStore.addToFavourites(this.currentWeatherData.location.name)
+    }
+  }
 }
 </script>
 
@@ -198,6 +216,11 @@ export default {
 </style>
 
 <style scoped>
+.favButton {
+  position: absolute;
+  right: 3%;
+  top: 5%;
+}
 .weather-card {
   max-width: 90%;
   margin-top: 2vh;
