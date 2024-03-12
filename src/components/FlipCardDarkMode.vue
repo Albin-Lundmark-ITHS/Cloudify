@@ -8,12 +8,12 @@ const toggleDark = useToggle(isDark)
   <div class="card" @click="toggleDark(), $nextTick(() => flipCard())">
     <div class="card__inner" :class="{ 'is-flipped': isFlipped }">
       <div class="card__face card__face--front">
-        <h4>Light Mode</h4>
+        <h4>Light <v-icon class="icon">mdi-white-balance-sunny</v-icon></h4>
       </div>
       <div class="card__face card__face--back">
         <div class="card__content">
           <div class="card__body">
-            <h4>Dark Mode</h4>
+            <h4>Dark <v-icon class="icon">mdi-weather-night</v-icon></h4>
           </div>
         </div>
       </div>
@@ -24,7 +24,7 @@ const toggleDark = useToggle(isDark)
 <style>
 .card {
   margin: 0 auto;
-  width: 6rem;
+  width: 4rem;
   height: 2rem;
 }
 
@@ -71,6 +71,12 @@ const toggleDark = useToggle(isDark)
 h4 {
   font-size: 0.9rem;
   margin: 0;
+}
+</style>
+
+<style scoped>
+.icon {
+  font-size: 0.9rem;
 }
 </style>
 

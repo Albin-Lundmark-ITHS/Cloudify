@@ -45,15 +45,17 @@ export default {
           icon="mdi-delete"
           @click="FavouriteStore.removeFromFavourites(favourite)"
         >
-        </v-icon
-      ></v-list-item>
+        </v-icon>
+      </v-list-item>
+      <v-divider class="border-opacity-100 mx-4"></v-divider>
     </v-list>
   </v-card>
 </template>
 
 <style scoped>
 .favourite {
-  margin-bottom: 150px;
-  width: clamp(55%, 600px, 95%);
+  margin-top: 5px;
+  margin-bottom: 30px;
+  width: clamp(55%, 600px, 90%);
 }
 </style>
