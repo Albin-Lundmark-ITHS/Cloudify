@@ -84,14 +84,16 @@
                     required
                   />
                   <input
+                    v-model="email"
                     type="email"
                     name="email"
                     placeholder="Email *"
                     @input="validateField"
                     required
                   />
-                  <input type="text" placeholder="Company" />
+                  <input type="text" placeholder="Company" name="company" />
                   <input
+                    v-model="phone"
                     type="tel"
                     name="phone"
                     placeholder="Phone *"
@@ -101,6 +103,7 @@
                   />
 
                   <textarea
+                    v-model="message"
                     rows="4"
                     placeholder="Write a message, max 120 characters *"
                     maxlength="120"
@@ -370,7 +373,10 @@ input:required:invalid {
 export default {
   data() {
     return {
-      enteredName: ''
+      enteredName: '',
+      email: '',
+      phone: '',
+      message: ''
     }
   },
   methods: {
@@ -405,6 +411,12 @@ export default {
         }
       }
     },
+    clearFields() {
+      this.enteredName = ''
+      this.email = ''
+      this.phone = ''
+      this.message = ''
+    },
     submitPopup() {
       const form = this.$refs.form
       let isValid = form.checkValidity()
@@ -417,6 +429,7 @@ export default {
         alert(
           `Thank you for your message, ${this.enteredName}! We have received your inquiry and will get back to you shortly.`
         )
+        this.clearFields()
       } else {
         form.reportValidity()
       }
