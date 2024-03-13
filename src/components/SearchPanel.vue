@@ -1,33 +1,35 @@
 <template>
-  <div id="search-container">
-    <v-responsive class="mx-auto text-container">
-      <v-text-field
-        ref="searchField"
-        v-model="WeatherStore.search"
-        label="Search for a place"
-        single-line
-        append-inner-icon="mdi-magnify"
-      ></v-text-field>
-    </v-responsive>
-    <v-list
-      class="scrollbar"
-      v-if="WeatherStore.search.length > 0 && WeatherStore.weatherData.length > 0"
-    >
-      <template v-for="place in WeatherStore.weatherData">
-        <v-list-item
-          v-if="!selected.includes(place)"
-          :key="place.id"
-          :disabled="loading"
-          @click="selectAlternative(place)"
-          tabindex="0"
-        >
-          <template v-slot:prepend>
-            <v-icon :disabled="loading" icon="mdi-map-marker" color="blue-grey-darken-2"></v-icon>
-          </template>
-          <v-list-item-title>{{ place.name }} {{ place.country }}</v-list-item-title>
-        </v-list-item>
-      </template>
-    </v-list>
+  <div class="darkToggle">
+    <div id="search-container">
+      <v-responsive class="mx-auto text-container">
+        <v-text-field
+          ref="searchField"
+          v-model="WeatherStore.search"
+          label="Search for a place"
+          single-line
+          append-inner-icon="mdi-magnify"
+        ></v-text-field>
+      </v-responsive>
+      <v-list
+        class="scrollbar"
+        v-if="WeatherStore.search.length > 0 && WeatherStore.weatherData.length > 0"
+      >
+        <template v-for="place in WeatherStore.weatherData">
+          <v-list-item
+            v-if="!selected.includes(place)"
+            :key="place.id"
+            :disabled="loading"
+            @click="selectAlternative(place)"
+            tabindex="0"
+          >
+            <template v-slot:prepend>
+              <v-icon :disabled="loading" icon="mdi-map-marker" color="blue-grey-darken-2"></v-icon>
+            </template>
+            <v-list-item-title>{{ place.name }} {{ place.country }}</v-list-item-title>
+          </v-list-item>
+        </template>
+      </v-list>
+    </div>
   </div>
 </template>
 
@@ -43,7 +45,6 @@ export default {
     return { WeatherStore }
   },
   data: () => ({
-
     selected: [],
     loading: false
   }),
