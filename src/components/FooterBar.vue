@@ -3,7 +3,6 @@
     <div id="linksFooter">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/">Favourites</RouterLink>
     </div>
     <div id="iconsFooter">
       <a href="https://www.facebook.com/" target="_blank">
@@ -52,7 +51,7 @@
   padding: 20px;
   background-color: #2c4e74;
   text-align: center;
-  box-shadow: 10px 5px 20px rgb(0, 0, 0);
+  box-shadow: 10px 2px 10px rgba(0, 0, 0, 0.5);
   overflow-y: hidden;
 }
 a {

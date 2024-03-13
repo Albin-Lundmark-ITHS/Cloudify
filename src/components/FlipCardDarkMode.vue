@@ -56,7 +56,7 @@ const toggleDark = useToggle(isDark)
 }
 
 .card__face--front {
-  background-color: rgb(218, 231, 241);
+  background-color: rgb(255, 255, 255);
 }
 
 .card__face--front h4 {
@@ -64,7 +64,7 @@ const toggleDark = useToggle(isDark)
 }
 
 .card__face--back {
-  background-color: rgb(136, 151, 165);
+  background-color: #2e3036;
   transform: rotateY(180deg);
 }
 

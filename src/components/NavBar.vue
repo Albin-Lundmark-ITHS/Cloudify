@@ -4,7 +4,7 @@ import Card from './FlipCardDarkMode.vue'
 <template>
   <!-- Navbar start -->
   <div id="nav-bar">
-    <v-app-bar height="70" color="#2C4E74" prominent>
+    <v-app-bar class="nav-bar-shadow" height="70" color="#2C4E74" prominent>
       <div class="logo-container">
         <RouterLink to="/"
           ><img alt="Logo" class="logo" src="@/assets/img/CloudifyLogo.png" width="55" height="55"

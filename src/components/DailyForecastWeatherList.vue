@@ -152,10 +152,7 @@ export default {
               {{ selectedDay ? selectedDay.astro.sunset : '' }}</v-card-text
             >
             <div class="btn-container">
-              <v-btn flat rounded color="#2C4E74" @click="closeOverlay">
-                Close
-                <v-icon class="button-icon" icon="mdi-close" size="large"></v-icon>
-              </v-btn>
+              <v-btn flat rounded color="#2C4E74" @click="closeOverlay"> Close </v-btn>
             </div>
           </v-card-text>
         </v-row>
@@ -164,6 +161,9 @@ export default {
   </v-card>
 </template>
 <style scoped>
+.v-card {
+  border-radius: 15px;
+}
 .mx-auto {
   margin-top: 30px;
   display: flex;
@@ -196,6 +196,7 @@ export default {
 .btn-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .button-icon {
