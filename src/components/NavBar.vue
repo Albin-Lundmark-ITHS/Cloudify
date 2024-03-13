@@ -24,6 +24,7 @@ import Card from './FlipCardDarkMode.vue'
     </v-app-bar>
   </div>
   <!-- Navbar end -->
+
   <!-- Navigation drawer start -->
   <v-navigation-drawer
     id="navigation-drawer"
