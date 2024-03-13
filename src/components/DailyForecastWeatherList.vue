@@ -37,13 +37,11 @@ export default {
       // Set the selected day and open the overlay.
       this.selectedDay = day
       this.overlay = true // Update the overlay state.
-      /* this.isPointerDown = true */
     },
     closeOverlay() {
       // Close the overlay.
       this.selectedDay = null
       this.overlay = false // Update the overlay state.
-      /* this.isPointerDown = false */
     },
     extractTime(dateTimeString) {
       // Split the string with date and time into an array, retrieves the third element of the array, the time part.
@@ -55,8 +53,6 @@ export default {
       this.hoveredButtonIndex = index
     },
     handlePointerLeave() {
-      /* this.btnVariant = 'plain'
-      this.btnColor = 'black' */
       this.hoveredButtonIndex = null
     }
   }
@@ -217,17 +213,12 @@ export default {
   color: white;
 }
 
-/* .button-down {
-  background-color: blue;
-  color: white;
-} */
-
 @media screen and (max-width: 600px) {
   .mx-auto {
     margin-top: 5vh;
     display: flex;
     flex-wrap: wrap;
-    max-width: 95%; /* Or 95vw, or fit content to remove space on the side*/
+    max-width: 95%;
   }
 
   .icon {
@@ -244,24 +235,6 @@ export default {
   .condition {
     flex: 2;
   }
-
-  /*   .v-btn:hover,
-  .v-btn:active {
-    background-color: #2c4e74;
-    color: white;
-  } */
-  /*   .v-btn {
-    background-color: white;
-    color: black;
-  }
-
-  */
-
-  /*  .v-btn:hover {
-    background-color: #2c4e74;
-    color: white;
-  }
- */
   .overlay {
     width: auto;
     height: auto;

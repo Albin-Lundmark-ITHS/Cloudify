@@ -46,8 +46,5 @@ export const useFavouriteStore = defineStore('favouriteStore', {
         this.favourites = JSON.parse(favoriter)
       }
     }
-  } /* ,
-  created() {
-    this.loadFavourites()
-  } */
+  }
 })

@@ -25,6 +25,22 @@ export const useWeatherStore = defineStore('weather', {
         }
       } catch (error) {
         console.error('Error fetching weather:', error)
+        // Fetches data from stockholm if there's a problem with fetching with IP
+        await this.fetchWeatherForStockholm()
+      }
+    },
+
+    async fetchWeatherForStockholm() {
+      try {
+        const apiKey = '3cdf684a5804447ebbb83645240503'
+        const stockholmUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Stockholm`
+
+        const response = await axios.get(stockholmUrl)
+        console.log('Stockholm Weather Data:', response.data)
+
+        this.weatherData = response.data
+      } catch (error) {
+        console.error('Error fetching weather for Stockholm:', error)
       }
     },
     async getWeather(place) {
@@ -60,7 +76,7 @@ export const useWeatherStore = defineStore('weather', {
     addRecentSearch(searchedPlace) {
       const placeName = searchedPlace.name
       this.getCurrentWeather(placeName).then(() => {
-        if(this.currentWeatherData) {
+        if (this.currentWeatherData) {
           const { location, current } = this.currentWeatherData
           const searchItem = {
             id: Date.now(),
@@ -74,18 +90,17 @@ export const useWeatherStore = defineStore('weather', {
               code: current.condition.code
             }
           }
-          this.recentSearches.unshift(searchItem);
+          this.recentSearches.unshift(searchItem)
           this.recentSearches = this.recentSearches.slice(0, 4)
           localStorage.setItem('recentSearches', JSON.stringify(this.recentSearches))
         }
       })
     },
-  fetchRecentSearches() {
-    const savedSearches = localStorage.getItem('recentSearches')
-    if (savedSearches) {
-      this.recentSearches = JSON.parse(savedSearches);
+    fetchRecentSearches() {
+      const savedSearches = localStorage.getItem('recentSearches')
+      if (savedSearches) {
+        this.recentSearches = JSON.parse(savedSearches)
+      }
     }
   }
-
-}
 })

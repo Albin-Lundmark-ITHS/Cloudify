@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <footer class="footer">
     <div id="linksFooter">
@@ -70,5 +68,3 @@ a:active {
   text-decoration: none;
 }
 </style>
-
-<script></script>

@@ -12,9 +12,6 @@ export default {
     })
     return { FavouriteStore, WeatherStore }
   },
-  /*  data: () => ({
-    selected: []
-  }), */
   methods: {
     select(place) {
       this.selected = place
@@ -30,8 +27,7 @@ export default {
     <v-card-title v-if="FavouriteStore.favouriteCount > 0" class="text-center"
       >Your favourite locations</v-card-title
     >
-    <v-card-title v-else class="text-center">Your favourites will be displayed here</v-card-title>
-
+    <v-card-title v-else class="text-center">No favourites yet</v-card-title>
     <v-list v-for="favourite in FavouriteStore.favourites" :key="favourite">
       <v-list-item
         v-if="favourite"
@@ -49,6 +45,9 @@ export default {
       </v-list-item>
       <v-divider class="border-opacity-100 mx-4"></v-divider>
     </v-list>
+    <div id="favourite-icon">
+      <img src="/src/assets/bilder/favourite.png" v-if="FavouriteStore.favouriteCount === 0" />
+    </div>
   </v-card>
 </template>
 
@@ -57,5 +56,11 @@ export default {
   margin-top: 5px;
   margin-bottom: 30px;
   width: clamp(55%, 600px, 90%);
+}
+#favourite-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
 }
 </style>

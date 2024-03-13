@@ -68,16 +68,13 @@ export default {
 </script>
 
 <style scoped>
-/* Suggestion */
-/* h1 {
-  user-select: none;
-  font-weight: 200;
-  font-size: 2.8rem;
-} */
-
 h1 {
   user-select: none;
+  font-weight: 500;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
 }
+
 .logo-container {
   height: auto;
   margin-top: 0.4rem;
@@ -111,10 +108,10 @@ a:visited {
 #nav-bar {
   margin-bottom: 70px;
 }
-/*
+
 @media screen and (max-width: 900px) {
-  #navigation-drawer {
-    height: 900px !important;
+  h1 {
+    font-size: 2rem;
   }
-} */
+}
 </style>
