@@ -8,6 +8,8 @@ export default {
     const currentWeatherData = ref(null)
     const selectedDay = ref(null)
 
+    const hoveredButtonIndex = ref(null)
+
     // Fetching data when the component is mounted.
     onMounted(async () => {
       await WeatherStore.getAutomaticPosition()
@@ -22,28 +24,40 @@ export default {
       }
     )
 
-    return { WeatherStore, currentWeatherData, selectedDay }
+    return { WeatherStore, currentWeatherData, selectedDay, hoveredButtonIndex }
   },
 
   data: () => ({
     expand: false,
-    overlay: false
+    overlay: false,
+    btnVariant: 'plain'
   }),
   methods: {
     openOverlay(day) {
       // Set the selected day and open the overlay.
       this.selectedDay = day
       this.overlay = true // Update the overlay state.
+      /* this.isPointerDown = true */
     },
     closeOverlay() {
       // Close the overlay.
       this.selectedDay = null
       this.overlay = false // Update the overlay state.
+      /* this.isPointerDown = false */
     },
     extractTime(dateTimeString) {
-      // Split the string into an array, retrieves the second element of the array, the time part.
+      // Split the string with date and time into an array, retrieves the third element of the array, the time part.
       const timePart = dateTimeString.split(' ')[2]
       return timePart || null
+    },
+    handlePointer(index) {
+      this.btnVariant = 'flat'
+      this.hoveredButtonIndex = index
+    },
+    handlePointerLeave() {
+      /* this.btnVariant = 'plain'
+      this.btnColor = 'black' */
+      this.hoveredButtonIndex = null
     }
   }
 }
@@ -64,7 +78,7 @@ export default {
 
     <v-card-text>
       <div
-        v-for="(day, index) in WeatherStore.currentWeatherData.forecast.forecastday.slice(1)"
+        v-for="(day, index) in WeatherStore.currentWeatherData.forecast.forecastday"
         :key="index"
         class="card-content"
       >
@@ -83,8 +97,11 @@ export default {
         </v-card-text>
         <v-card-text class="text-content"> {{ Math.round(day.day.maxtemp_c) }}&deg;C </v-card-text>
         <v-btn
-          variant="plain"
+          :variant="btnVariant"
+          :color="index === hoveredButtonIndex ? '#2C4E74' : ''"
           size="small"
+          @pointerover="handlePointer(index)"
+          @pointerout="handlePointerLeave"
           @click="openOverlay(day)"
           icon="mdi-chevron-right"
         ></v-btn>
@@ -139,7 +156,7 @@ export default {
               {{ selectedDay ? selectedDay.astro.sunset : '' }}</v-card-text
             >
             <div class="btn-container">
-              <v-btn flat color="#42A5F5" @click="closeOverlay">
+              <v-btn flat rounded color="#2C4E74" @click="closeOverlay">
                 Close
                 <v-icon class="button-icon" icon="mdi-close" size="large"></v-icon>
               </v-btn>
@@ -190,6 +207,21 @@ export default {
   margin-top: 0.1vh;
 }
 
+.v-btn {
+  background-color: white;
+  color: black;
+}
+
+.v-btn:active {
+  background-color: #2c4e74;
+  color: white;
+}
+
+/* .button-down {
+  background-color: blue;
+  color: white;
+} */
+
 @media screen and (max-width: 600px) {
   .mx-auto {
     margin-top: 5vh;
@@ -212,6 +244,24 @@ export default {
   .condition {
     flex: 2;
   }
+
+  /*   .v-btn:hover,
+  .v-btn:active {
+    background-color: #2c4e74;
+    color: white;
+  } */
+  /*   .v-btn {
+    background-color: white;
+    color: black;
+  }
+
+  */
+
+  /*  .v-btn:hover {
+    background-color: #2c4e74;
+    color: white;
+  }
+ */
   .overlay {
     width: auto;
     height: auto;
