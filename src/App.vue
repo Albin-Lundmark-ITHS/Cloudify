@@ -8,7 +8,7 @@ const isDark = useDark()
 
 <template>
   <v-app>
-    <NavBar :class="{ dark: isDark }" />
+    <NavBar />
     <RouterView :class="{ dark: isDark }" />
     <FooterBar :class="{ dark: isDark }" />
   </v-app>

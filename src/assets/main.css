@@ -74,3 +74,8 @@ html {
   background: #2e3036 !important;
   color: white !important;
 }
+
+.dark .v-application__wrap {
+  background: rgb(33, 33, 33) !important;
+  color: white !important;
+}

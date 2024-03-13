@@ -30,8 +30,6 @@
   width: 50px;
 }
 .footerIcon {
-  width: 32px;
-  height: 32px;
   font-size: 32px;
 }
 #iconsFooter {

@@ -1,40 +1,39 @@
 <template>
-  <div>
+  <div class="search-card-container">
+    <h2 class="text-center">Your search history</h2>
     <v-card
       v-for="searchItem in recentSearches"
       :key="searchItem.id"
-      class="search-card mx-auto" :class="backgroundImage(searchItem)"
+      class="search-card mx-auto"
+      :class="backgroundImage(searchItem)"
     >
       <v-card-item v-if="searchItem">
-      <template v-slot:title>
-        {{ searchItem.name }}, {{ searchItem.country }}
-      </template>
-      <template v-slot:subtitle> {{ searchItem.condition.text }}</template>
-    </v-card-item>
-    <v-card-text class="card-content">
+        <template v-slot:title> {{ searchItem.name }}, {{ searchItem.country }} </template>
+        <template v-slot:subtitle> {{ searchItem.condition.text }}</template>
+      </v-card-item>
+      <v-card-text class="card-content">
         <v-row>
-       <v-col class="text-h5" cols="4">{{ searchItem.temp_c }}&deg;C </v-col>
-        <v-col class="text-right icon">
-          <img :src="searchItem.condition.icon" :alt="searchItem.condition.text">
-        </v-col>
-      </v-row>
-    </v-card-text>
+          <v-col class="text-h5" cols="4">{{ searchItem.temp_c }}&deg;C </v-col>
+          <v-col class="text-right icon">
+            <img :src="searchItem.condition.icon" :alt="searchItem.condition.text" />
+          </v-col>
+        </v-row>
+      </v-card-text>
     </v-card>
   </div>
 </template>
 <script>
-import { useWeatherStore } from '@/store/WeatherStore';
+import { useWeatherStore } from '@/store/WeatherStore'
 import { computed } from 'vue'
 
 export default {
   setup() {
-const WeatherStore = useWeatherStore()
-const recentSearches = computed(() => WeatherStore.recentSearches)
+    const WeatherStore = useWeatherStore()
+    const recentSearches = computed(() => WeatherStore.recentSearches)
 
-
-const backgroundImage = (searchItem) => {
-  const code = searchItem.condition.code
-  const isDay = searchItem.isDay
+    const backgroundImage = (searchItem) => {
+      const code = searchItem.condition.code
+      const isDay = searchItem.isDay
 
       if (code === 1000 && isDay === 1) {
         return 'bg-sunny'
@@ -96,15 +95,13 @@ const backgroundImage = (searchItem) => {
         return 'bg-thunder'
       } else {
         return 'bg-default'
+      }
     }
-  }
 
-return{ recentSearches, backgroundImage,}
-}
+    return { recentSearches, backgroundImage }
+  }
 }
 </script>
-
-
 
 <style scoped>
 .icon {
@@ -114,7 +111,11 @@ return{ recentSearches, backgroundImage,}
 .search-card {
   max-width: 40vh;
   max-height: 25vh;
+  /* margin-bottom: 10px; */
   color: white;
+}
+.search-card-container {
+  margin-bottom: 160px;
 }
 .bg-sunny {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),

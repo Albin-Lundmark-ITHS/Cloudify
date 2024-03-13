@@ -64,7 +64,13 @@ export default {
 </script>
 
 <template>
-  <v-card class="mx-auto" width="550" prepend-icon="mdi-map-marker" v-if="currentWeatherData">
+  <v-card
+    class="mx-auto"
+    width="clamp(90%, 55vw, 55%)"
+    height="fit-content"
+    prepend-icon="mdi-map-marker"
+    v-if="currentWeatherData"
+  >
     <template v-slot:title>
       {{ WeatherStore.currentWeatherData.location.name }}
       {{ WeatherStore.currentWeatherData.location.country }}
@@ -163,10 +169,11 @@ export default {
 </template>
 <style scoped>
 .mx-auto {
-  margin-top: 5vh;
+  margin-top: 30px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  margin-bottom: 15rem;
+  margin-bottom: 30px;
 }
 
 .card-content {
@@ -215,7 +222,7 @@ export default {
   color: white;
 } */
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .mx-auto {
     margin-top: 5vh;
     display: flex;
