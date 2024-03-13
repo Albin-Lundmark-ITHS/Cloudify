@@ -10,7 +10,7 @@ const isDark = useDark()
 
 <template>
   <SearchPanel :class="{ dark: isDark }" />
-  <h1 class="text-center">See your local forecast</h1>
+  <h1 class="text-center" :class="{ dark: isDark }">See your local forecast</h1>
   <main class="grid-container" :class="{ dark: isDark }">
     <WeatherCards class="weather-cards" />
     <DailyForecastWeatherList class="forecast-weather-list" :class="{ dark: isDark }" />
@@ -21,6 +21,7 @@ const isDark = useDark()
 
 <style scoped>
 .grid-container {
+  padding-bottom: 170px;
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   grid-auto-rows: auto;

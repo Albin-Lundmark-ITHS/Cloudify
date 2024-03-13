@@ -111,7 +111,7 @@ export default {
 .search-card {
   max-width: 40vh;
   max-height: 25vh;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   color: white;
 }
 .search-card-container {
