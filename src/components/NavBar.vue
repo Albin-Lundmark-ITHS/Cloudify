@@ -1,7 +1,6 @@
 <script setup>
 import Card from './FlipCardDarkMode.vue'
 </script>
-
 <template>
   <!-- Navbar start -->
   <div id="nav-bar">
@@ -112,7 +111,7 @@ a:visited {
 #nav-bar {
   margin-bottom: 70px;
 }
-/* 
+/*
 @media screen and (max-width: 900px) {
   #navigation-drawer {
     height: 900px !important;

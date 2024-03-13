@@ -9,6 +9,15 @@
         {{ currentWeatherData.location.name }}
         {{ currentWeatherData.location.country }}
       </template>
+      <!-- Favourite button -->
+      <v-btn
+        v-if="FavouriteStore.favourites.includes(currentWeatherData.location.name)"
+        class="favButton"
+        @click="toggleFav"
+        icon="mdi-heart"
+      >
+      </v-btn>
+      <v-btn v-else class="favButton" @click="toggleFav" icon="mdi-heart-outline"></v-btn>
     </v-card-item>
 
     <v-card-text class="py-0" v-if="currentWeatherData && currentWeatherData.current">
@@ -73,14 +82,16 @@
 
 <script>
 import { useWeatherStore } from '@/store/WeatherStore'
+import { useFavouriteStore } from '@/store/FavouriteStore'
 import { ref, onMounted, watch } from 'vue'
 
 export default {
   setup() {
     const WeatherStore = useWeatherStore()
+    const FavouriteStore = useFavouriteStore()
     const currentWeatherData = ref(null)
     const weatherCode = ref(null)
-   const isDay = ref(null)
+    const isDay = ref(null)
 
     // Use onMounted to fetch data when the component is mounted.
     onMounted(async () => {
@@ -98,7 +109,7 @@ export default {
       }
     )
 
-    return { currentWeatherData, weatherCode, isDay }
+    return { currentWeatherData, weatherCode, isDay, FavouriteStore }
   },
   computed: {
     backgroundImage() {
@@ -170,8 +181,15 @@ export default {
   },
   data: () => ({
     expand: false,
-    time: 0
-  })
+    time: 0,
+    isFav: false
+  }),
+  methods: {
+    toggleFav() {
+      this.isFav = !this.isFav
+      this.FavouriteStore.addToFavourites(this.currentWeatherData.location.name)
+    }
+  }
 }
 </script>
 
@@ -198,9 +216,15 @@ export default {
 </style>
 
 <style scoped>
+.favButton {
+  position: absolute;
+  right: 3%;
+  top: 5%;
+}
 .weather-card {
+  width: 100%;
   max-width: 90%;
-  margin-top: 2vh;
+  margin-top: 30px;
   margin-bottom: 5vh;
 }
 
@@ -218,7 +242,7 @@ export default {
   color: white;
 }
 .bg-sunny {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
     url('../assets/bilder/sunny.jpg');
   background-size: cover;
 }
@@ -237,7 +261,7 @@ export default {
   background-size: cover;
 }
 .bg-rain {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
     url('../assets/bilder/rain.jpg');
   background-size: cover;
 }
@@ -252,12 +276,12 @@ export default {
   background-size: cover;
 }
 .bg-default {
-  background-color: #d4e9f4;
+  background-color: #062b50;
 }
 
 @media (min-width: 800px) {
   .weather-card {
-    max-width: 65%;
+    max-width: 85%;
   }
 }
 </style>

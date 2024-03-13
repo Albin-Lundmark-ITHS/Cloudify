@@ -1,8 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 * {
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
   font-family: Nunito, sans-serif;
+}
+
+html {
+  height: 100%;
+  width: auto;
+}
+
+.dark {
+  background: #21232b !important;
+  color: #fff !important;
+}
+
+.dark .footer {
+  background: #2e3036 !important;
+}
+
+.dark .right-container input,
+.dark .right-container button,
+.dark .right-container textarea {
+  background: #2e3036 !important;
+  color: white !important;
+}
+
+.dark .right-container {
+  background: #474d5e !important;
+  color: white !important;
+}
+
+.dark .left-container {
+  background: #2e3036 !important;
+  color: white !important;
+}
+
+.dark .v-toolbar__content {
+  background: #2e3036 !important;
+}
+
+.dark .v-list.v-theme--light.v-list--density-default.v-list--one-line.scrollbar {
+  background: #2e3036 !important;
+  color: white !important;
+}
+
+.dark .v-card.v-theme--light.v-card--density-default.v-card--variant-elevated.mx-auto.dark {
+  background: #2e3036 !important;
+  color: white !important;
+}
+
+.dark .v-card-text.text-content.condition {
+  background: #2e3036 !important;
+  color: white !important;
+}
+
+.dark #navigation-drawer {
+  background: #2e3036 !important;
+  color: white !important;
+}
+
+.dark a {
+  color: white !important;
+}
+
+.dark a:hover {
+  color: rgb(33, 33, 33) !important;
+}
+
+.dark .v-list.v-theme--light.v-list--density-default.v-list--one-line {
+  background: #2e3036 !important;
+  color: white !important;
+}
+
+.dark .v-application__wrap {
+  background: rgb(33, 33, 33) !important;
+  color: white !important;
 }

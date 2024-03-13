@@ -1,13 +1,19 @@
+<script setup>
+import { useDark, useToggle } from '@vueuse/core'
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+</script>
+
 <template>
-  <div class="card" @click="flipCard">
+  <div class="card" @click="toggleDark(), $nextTick(() => flipCard())">
     <div class="card__inner" :class="{ 'is-flipped': isFlipped }">
       <div class="card__face card__face--front">
-        <h4>Dark Mode</h4>
+        <h4>Light <v-icon class="icon">mdi-white-balance-sunny</v-icon></h4>
       </div>
       <div class="card__face card__face--back">
         <div class="card__content">
           <div class="card__body">
-            <h4>Light Mode</h4>
+            <h4>Dark <v-icon class="icon">mdi-weather-night</v-icon></h4>
           </div>
         </div>
       </div>
@@ -18,7 +24,7 @@
 <style>
 .card {
   margin: 0 auto;
-  width: 6rem;
+  width: 4rem;
   height: 2rem;
 }
 
@@ -29,6 +35,7 @@
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
+  overflow: visible;
 }
 
 .card__inner.is-flipped {
@@ -41,7 +48,7 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
@@ -67,6 +74,12 @@ h4 {
 }
 </style>
 
+<style scoped>
+.icon {
+  font-size: 0.9rem;
+}
+</style>
+
 <script>
 export default {
   data() {
@@ -74,9 +87,16 @@ export default {
       isFlipped: false
     }
   },
+  mounted() {
+    const isFlipped = localStorage.getItem('isFlipped')
+    if (isFlipped !== null) {
+      this.isFlipped = JSON.parse(isFlipped)
+    }
+  },
   methods: {
     flipCard() {
       this.isFlipped = !this.isFlipped
+      localStorage.setItem('isFlipped', JSON.stringify(this.isFlipped))
     }
   }
 }

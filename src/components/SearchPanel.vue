@@ -68,6 +68,7 @@ export default {
 
       // Call the getCurrentWeather method with the selected place name.
       this.WeatherStore.getCurrentWeather(item.name)
+      this.WeatherStore.addRecentSearch(item)
     }
   }
 }
