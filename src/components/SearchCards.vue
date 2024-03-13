@@ -1,6 +1,5 @@
 <template>
   <div class="search-card-container">
-    <h2 class="text-center">Your search history</h2>
     <v-card
       v-for="searchItem in recentSearches"
       :key="searchItem.id"
@@ -109,12 +108,16 @@ export default {
   top: 15%;
 }
 .search-card {
+  width: 300px;
   max-width: 40vh;
   max-height: 25vh;
-  /* margin-bottom: 10px; */
   color: white;
+  margin-bottom: 10px;
 }
 .search-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   margin-bottom: 160px;
 }
 .bg-sunny {

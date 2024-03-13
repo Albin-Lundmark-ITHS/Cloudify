@@ -98,10 +98,6 @@ export default {
 }
 
 @media (max-width: 800px) {
-  /* .text-field-input {
-    max-width: 80vw;
-  } */
-
   #search-container {
     width: 80vw;
   }

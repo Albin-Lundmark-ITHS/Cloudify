@@ -15,13 +15,14 @@ const isDark = useDark()
     <WeatherCards class="weather-cards" />
     <DailyForecastWeatherList class="forecast-weather-list" :class="{ dark: isDark }" />
     <FavouriteList class="favourite-list" :class="{ dark: isDark }" />
-    <SearchCards class="search-cards" />
   </main>
+  <h1 class="text-center">Your search history</h1>
+  <SearchCards class="search-cards" />
 </template>
 
 <style scoped>
 .grid-container {
-  padding-bottom: 170px;
+  padding-bottom: 50px;
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   grid-auto-rows: auto;

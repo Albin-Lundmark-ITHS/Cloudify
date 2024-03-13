@@ -7,7 +7,7 @@
         <img
           id="staff-image"
           src="https://insidesmallbusiness.com.au/wp-content/uploads/2021/04/bigstock-192555907.jpg"
-          alt=""
+          alt="Staff picture"
         />
       </div>
 
