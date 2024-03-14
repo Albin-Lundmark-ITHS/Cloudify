@@ -4,11 +4,7 @@
       <div id="about-us-container">
         <h1>Meet our team</h1>
 
-        <img
-          id="staff-image"
-          src="https://insidesmallbusiness.com.au/wp-content/uploads/2021/04/bigstock-192555907.jpg"
-          alt="Staff picture"
-        />
+        <img id="staff-image" src="../assets/bilder/Cloudify-Staff.jpg" alt="Staff picture" />
       </div>
 
       <div id="about-us-text">
@@ -324,6 +320,8 @@ form p {
   .left-inner-container,
   .right-inner-container {
     margin-top: 20px;
+    margin-bottom: 10px;
+    overflow-y: hidden;
     width: 90%;
   }
 

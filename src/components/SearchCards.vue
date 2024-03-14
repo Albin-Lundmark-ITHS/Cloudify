@@ -102,6 +102,9 @@ export default {
 
     return { recentSearches, backgroundImage, WeatherStore }
   },
+  mounted() {
+    this.WeatherStore.fetchRecentSearches()
+  },
   methods: {
     select(place) {
       this.selected = place
