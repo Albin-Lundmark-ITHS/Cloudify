@@ -16,7 +16,7 @@ const isDark = useDark()
     <DailyForecastWeatherList class="forecast-weather-list" :class="{ dark: isDark }" />
     <FavouriteList class="favourite-list" :class="{ dark: isDark }" />
   </main>
-  <h1 class="text-center">Your search history</h1>
+  <h1 class="text-center" :class="{ dark: isDark }">Your search history</h1>
   <SearchCards class="search-cards" />
 </template>
 

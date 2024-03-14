@@ -148,6 +148,7 @@ li {
 #staff-image {
   height: 65vh;
   width: auto;
+  border-radius: 15px;
 }
 
 #about-us-text {
@@ -204,13 +205,14 @@ h3 {
 .container {
   background-color: #dbe2ea;
   display: flex;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 10px 5px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.45);
   overflow: hidden;
   width: 768px;
   width: 70%;
   min-height: 550px;
   min-width: 370px;
   margin-bottom: 5rem;
+  border-radius: 15px;
 }
 
 h2 {

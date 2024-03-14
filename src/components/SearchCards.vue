@@ -1,24 +1,26 @@
 <template>
-  <div class="search-card-container">
-    <v-card
-      v-for="searchItem in recentSearches"
-      :key="searchItem.id"
-      class="search-card mx-auto"
-      :class="backgroundImage(searchItem)"
-    >
-      <v-card-item v-if="searchItem">
-        <template v-slot:title> {{ searchItem.name }}, {{ searchItem.country }} </template>
-        <template v-slot:subtitle> {{ searchItem.condition.text }}</template>
-      </v-card-item>
-      <v-card-text class="card-content">
-        <v-row>
-          <v-col class="text-h5" cols="4">{{ searchItem.temp_c }}&deg;C </v-col>
-          <v-col class="text-right icon">
-            <img :src="searchItem.condition.icon" :alt="searchItem.condition.text" />
-          </v-col>
-        </v-row>
-      </v-card-text>
-    </v-card>
+  <div class="darkToggle">
+    <div class="search-card-container">
+      <v-card
+        v-for="searchItem in recentSearches"
+        :key="searchItem.id"
+        class="search-card mx-auto"
+        :class="backgroundImage(searchItem)"
+      >
+        <v-card-item v-if="searchItem">
+          <template v-slot:title> {{ searchItem.name }}, {{ searchItem.country }} </template>
+          <template v-slot:subtitle> {{ searchItem.condition.text }}</template>
+        </v-card-item>
+        <v-card-text class="card-content">
+          <v-row>
+            <v-col class="text-h5" cols="4">{{ searchItem.temp_c }}&deg;C </v-col>
+            <v-col class="text-right icon">
+              <img :src="searchItem.condition.icon" :alt="searchItem.condition.text" />
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </v-card>
+    </div>
   </div>
 </template>
 <script>
@@ -113,6 +115,7 @@ export default {
   max-height: 25vh;
   color: white;
   margin-bottom: 10px;
+  border-radius: 15px;
 }
 .search-card-container {
   display: flex;

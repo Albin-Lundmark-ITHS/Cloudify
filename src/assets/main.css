@@ -29,7 +29,7 @@ html {
 }
 
 .dark .right-container {
-  background: #474d5e !important;
+  background: #60646f !important;
   color: white !important;
 }
 
@@ -78,4 +78,35 @@ html {
 .dark .v-application__wrap {
   background: rgb(33, 33, 33) !important;
   color: white !important;
+}
+.dark .darkToggle {
+  background: #21232b !important;
+  color: white !important;
+}
+.dark #favourite-icon {
+  filter: invert();
+}
+.dark
+  .v-btn.v-btn--flat.v-theme--light.v-btn--density-default.v-btn--rounded.v-btn--size-default.v-btn--variant-elevated {
+  background-color: white !important;
+  color: black !important;
+}
+.dark
+  .v-btn.v-btn--flat.v-theme--light.v-btn--density-default.v-btn--rounded.v-btn--size-default.v-btn--variant-elevated:hover {
+  background-color: #2c4e74 !important;
+  color: rgb(255, 255, 255) !important;
+}
+.dark #submitBtn:hover {
+  background-color: #2c4e74 !important;
+  color: rgb(255, 255, 255) !important;
+}
+.dark #submitBtn {
+  background-color: #ffffff !important;
+  color: rgb(0, 0, 0) !important;
+}
+.nav-bar-shadow {
+  box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.5) !important;
+}
+.footer {
+  box-shadow: 10px -5px 20px rgba(0, 0, 0, 0.5) !important;
 }

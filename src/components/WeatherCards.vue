@@ -13,6 +13,7 @@
       <v-btn
         v-if="FavouriteStore.favourites.includes(currentWeatherData.location.name)"
         class="favButton"
+        style="color: red"
         @click="toggleFav"
         icon="mdi-heart"
       >
@@ -222,6 +223,7 @@ export default {
   top: 5%;
 }
 .weather-card {
+  border-radius: 15px;
   width: 100%;
   max-width: 90%;
   margin-top: 30px;

@@ -56,6 +56,7 @@ export default {
   margin-top: 5px;
   margin-bottom: 30px;
   width: clamp(55%, 600px, 90%);
+  border-radius: 15px;
 }
 #favourite-icon {
   display: flex;
