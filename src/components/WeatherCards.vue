@@ -6,7 +6,7 @@
         {{ currentWeatherData.current.condition.text }}
       </template>
       <template v-slot:title>
-        {{ currentWeatherData.location.name }}
+        {{ currentWeatherData.location.name }},
         {{ currentWeatherData.location.country }}
       </template>
       <!-- Favourite button -->
@@ -23,7 +23,9 @@
 
     <v-card-text class="py-0" v-if="currentWeatherData && currentWeatherData.current">
       <v-row align:center no-gutters>
-        <v-col class="text-h2" cols="6"> {{ currentWeatherData.current.temp_c }}&deg; </v-col>
+        <v-col class="text-h2" cols="6">
+          {{ Math.round(currentWeatherData.current.temp_c) }}&deg;C
+        </v-col>
 
         <v-col cols="6" class="text-right">
           <img

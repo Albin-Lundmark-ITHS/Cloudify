@@ -5,6 +5,7 @@
         v-for="searchItem in recentSearches"
         :key="searchItem.id"
         class="search-card mx-auto"
+        @click="select(searchItem.name)"
         :class="backgroundImage(searchItem)"
       >
         <v-card-item v-if="searchItem">
@@ -13,7 +14,7 @@
         </v-card-item>
         <v-card-text class="card-content">
           <v-row>
-            <v-col class="text-h5" cols="4">{{ searchItem.temp_c }}&deg;C </v-col>
+            <v-col class="text-h5" cols="4">{{ Math.round(searchItem.temp_c) }}&deg;C </v-col>
             <v-col class="text-right icon">
               <img :src="searchItem.condition.icon" :alt="searchItem.condition.text" />
             </v-col>
@@ -99,7 +100,17 @@ export default {
       }
     }
 
-    return { recentSearches, backgroundImage }
+    return { recentSearches, backgroundImage, WeatherStore }
+  },
+  methods: {
+    select(place) {
+      this.selected = place
+      this.WeatherStore.getWeather(place)
+      this.WeatherStore.getCurrentWeather(place)
+      window.scrollTo({
+        top: 100
+      })
+    }
   }
 }
 </script>
