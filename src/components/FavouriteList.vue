@@ -17,6 +17,9 @@ export default {
       this.selected = place
       this.WeatherStore.getWeather(place)
       this.WeatherStore.getCurrentWeather(place)
+      window.scrollTo({
+        top: 100
+      })
     }
   }
 }

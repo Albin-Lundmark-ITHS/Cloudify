@@ -68,7 +68,7 @@ export default {
     v-if="currentWeatherData"
   >
     <template v-slot:title>
-      {{ WeatherStore.currentWeatherData.location.name }}
+      {{ WeatherStore.currentWeatherData.location.name }},
       {{ WeatherStore.currentWeatherData.location.country }}
     </template>
 
