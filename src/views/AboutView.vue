@@ -91,7 +91,7 @@
                     @input="validateField"
                     required
                   />
-                  <input type="text" placeholder="Company" name="company" />
+                  <input type="text" v-model="company" placeholder="Company" name="company" />
                   <input
                     v-model="phone"
                     type="tel"
@@ -378,7 +378,8 @@ export default {
       enteredName: '',
       email: '',
       phone: '',
-      message: ''
+      message: '',
+      company: ''
     }
   },
   methods: {
@@ -418,6 +419,7 @@ export default {
       this.email = ''
       this.phone = ''
       this.message = ''
+      this.company = ''
     },
     submitPopup() {
       const form = this.$refs.form
