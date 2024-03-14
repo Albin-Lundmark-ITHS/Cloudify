@@ -17,11 +17,8 @@ export const useWeatherStore = defineStore('weather', {
         const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=auto:ip`
 
         const response = await axios.get(apiUrl)
-        console.log('Full Response:', response)
-
         if (!this.weatherData || !this.weatherData.data) {
           this.weatherData = response.data
-          console.log('Weather Data:', response.data)
         }
       } catch (error) {
         console.error('Error fetching weather:', error)
@@ -36,8 +33,6 @@ export const useWeatherStore = defineStore('weather', {
         const stockholmUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Stockholm`
 
         const response = await axios.get(stockholmUrl)
-        console.log('Stockholm Weather Data:', response.data)
-
         this.weatherData = response.data
       } catch (error) {
         console.error('Error fetching weather for Stockholm:', error)
@@ -49,9 +44,7 @@ export const useWeatherStore = defineStore('weather', {
         const apiUrl = `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${place}`
 
         const response = await axios.get(apiUrl)
-        console.log('Full Response:', response)
         this.weatherData = response.data
-        console.log('Weather Data:', response.data)
       } catch (error) {
         console.error('Error fetching weather:', error)
       }
@@ -62,13 +55,9 @@ export const useWeatherStore = defineStore('weather', {
         const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${place}&days=8&alerts=yes`
 
         const response = await axios.get(apiUrl)
-        console.log('Full Response:', response)
         this.currentWeatherData = response.data
-        console.log('Weather Data:', response.data.location.name)
         this.weatherCode = response.data.current.condition.code
-        console.log(this.weatherCode)
         this.isDay = response.data.current.is_day
-        console.log(this.isDay)
       } catch (error) {
         console.error('Error fetching weather:', error)
       }

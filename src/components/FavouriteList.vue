@@ -8,7 +8,6 @@ export default {
     const WeatherStore = useWeatherStore()
     onMounted(async () => {
       await FavouriteStore.loadFavourites()
-      console.log(FavouriteStore.favourites)
     })
     return { FavouriteStore, WeatherStore }
   },
