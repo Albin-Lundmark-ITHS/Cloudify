@@ -40,7 +40,7 @@ export const useWeatherStore = defineStore('weather', {
     },
     async getWeather(place) {
       try {
-        const apiKey = '3cdf684a5804447ebbb83645240503'
+        const apiKey = '0a94bc4693b944bcbe380025241903'
         const apiUrl = `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${place}`
 
         const response = await axios.get(apiUrl)
@@ -51,7 +51,7 @@ export const useWeatherStore = defineStore('weather', {
     },
     async getCurrentWeather(place) {
       try {
-        const apiKey = '3cdf684a5804447ebbb83645240503'
+        const apiKey = '0a94bc4693b944bcbe380025241903'
         const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${place}&days=8&alerts=yes`
 
         const response = await axios.get(apiUrl)
