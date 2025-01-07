@@ -13,7 +13,8 @@ export const useWeatherStore = defineStore('weather', {
   actions: {
     async getAutomaticPosition() {
       try {
-        const apiKey = '3cdf684a5804447ebbb83645240503'
+        // eslint-disable-next-line no-undef
+        const apiKey = process.env.VUE_APP_API_KEY
         const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=auto:ip`
 
         const response = await axios.get(apiUrl)
